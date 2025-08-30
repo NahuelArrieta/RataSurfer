@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmj5ng1b4awrq"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_qjg8y"]
+[ext_resource type="PackedScene" uid="uid://cj0qgxt0fag32" path="res://art/object3D/Modulo.001 (5).glb" id="3_l7v3o"]
+
+[node name="Module1" instance=ExtResource("1_qjg8y")]
+
+[node name="Modulo_001 (5)" parent="." index="0" instance=ExtResource("3_l7v3o")]

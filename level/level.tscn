@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=7 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
-[ext_resource type="ArrayMesh" uid="uid://bt6tbvqmfqkjq" path="res://art/object3D/Modulo0.1.obj" id="2_5gx2l"]
+[ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://dmj5ng1b4awrq" path="res://level/module_1.tscn" id="3_qohg2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -29,6 +30,14 @@ environment = SubResource("Environment_vkbyq")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.931526, 0.363674, 0, -0.363674, 0.931526, 4.41345, 8.56721, 6.37332)
 
-[node name="Modulo0_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.4512)
-mesh = ExtResource("2_5gx2l")
+[node name="ModuleHandler" type="Node3D" parent="."]
+script = ExtResource("2_5gx2l")
+
+[node name="Module1" parent="ModuleHandler" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
