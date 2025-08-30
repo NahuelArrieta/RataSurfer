@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=8 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="ArrayMesh" uid="uid://bt6tbvqmfqkjq" path="res://art/object3D/Modulo0.1.obj" id="2_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://caa612nngg7y4" path="res://ui/score_ui.tscn" id="3_0x9y8"]
+[ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -16,6 +18,7 @@ sky = SubResource("Sky_qohg2")
 tonemap_mode = 2
 
 [node name="Level" type="Node3D"]
+script = ExtResource("4_2x0y9")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -32,3 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 0.931526, 0.363674, 0, -0.363674, 0.931526, 
 [node name="Modulo0_1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.4512)
 mesh = ExtResource("2_5gx2l")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreUI" parent="UI" instance=ExtResource("3_0x9y8")]
