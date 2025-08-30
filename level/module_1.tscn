@@ -6,3 +6,6 @@
 [node name="Module1" instance=ExtResource("1_qjg8y")]
 
 [node name="Modulo_001 (5)" parent="." index="0" instance=ExtResource("3_l7v3o")]
+
+[node name="Timer" parent="." index="1"]
+wait_time = 3.0
