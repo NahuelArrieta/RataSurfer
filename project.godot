@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RataSurfer"
-run/main_scene="uid://b02ld6vivyc5w"
+run/main_scene="uid://vmctgci7ykxm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

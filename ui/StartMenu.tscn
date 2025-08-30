@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://vmctgci7ykxm"]
+
+[ext_resource type="Script" uid="uid://chtgt6x1usa78" path="res://ui/control.gd" id="1_bx376"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bx376")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1930.0
+offset_bottom = 1098.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "RATA SURFER"
+
+[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Iniciar Juego"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
