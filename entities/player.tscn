@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ylubghgfke4"]
+
+[ext_resource type="Texture2D" uid="uid://ck5rvx6etc8mn" path="res://icon.svg" id="1_merdl"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_merdl")
