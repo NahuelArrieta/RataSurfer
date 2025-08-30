@@ -41,6 +41,10 @@ down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_8="Slide Collision"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

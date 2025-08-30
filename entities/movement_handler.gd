@@ -1,9 +1,16 @@
 extends Node
 
 @onready var player: CharacterBody3D = $".."
+@onready var right_ray: RayCast3D = $"../RightRay"
+@onready var left_ray: RayCast3D = $"../LeftRay"
+@export var lane_size := 5
 
-@export var distancia_carriles := 5
 
+func _ready() -> void:
+	# Move the rays to the sides
+	right_ray.set_target_position(Vector3(lane_size, 0, 0))
+	left_ray.set_target_position(Vector3(-lane_size, 0, 0))
+	
 var lane := -1
 
 func is_sliding() -> bool:
@@ -11,6 +18,7 @@ func is_sliding() -> bool:
 		
 
 func _physics_process(delta: float) -> void:
+
 	if is_sliding():
 		handle_slide_movement()
 	else: 
@@ -30,16 +38,28 @@ func handle_x_movement(direction):
 	if new_lane < -1 or new_lane > 1:
 		start_sliding(direction)
 		return
-	player.position.x += distancia_carriles * direction
+	player.position.x += lane_size * direction
 	lane = new_lane
 
 
 func start_sliding(direction):
-	## TODO check if sliding is allowed
-	player.position.x += distancia_carriles * direction
-	player.position.y = distancia_carriles ##TODO
+	if !can_slide(direction):
+		return
+	player.position.x += lane_size * direction
+	player.position.y = lane_size ##TODO
 	lane += 1 * direction
+	
 
+
+func can_slide(direction) -> bool:
+	var rayCast: RayCast3D
+	if direction > 0: 
+		rayCast = right_ray
+	else: 
+		rayCast = left_ray
+	
+	return rayCast.is_colliding()
+		
 
 func handle_slide_movement():
 	if Input.is_action_just_pressed("down"):
@@ -48,8 +68,8 @@ func handle_slide_movement():
 func stop_sliding():
 	if lane == -2: 
 		lane = -1
-		player.position.x += distancia_carriles
+		player.position.x += lane_size
 	else: 
 		lane = 1
-		player.position.x -= distancia_carriles
+		player.position.x -= lane_size
 	player.position.y = 0
