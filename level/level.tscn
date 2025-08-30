@@ -16,7 +16,7 @@ sky = SubResource("Sky_qohg2")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5gx2l"]
-size = Vector3(0.998047, 1, 1.17761)
+size = Vector3(3.39694, 0.511353, 1.15775)
 
 [node name="Level" type="Node3D"]
 
@@ -36,12 +36,22 @@ mesh = ExtResource("2_5gx2l")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="sliideTrigger" type="Area3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.82181, 0, 0)
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sliideTrigger"]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 5, 5.27447, 0.274618, -1.52054)
+shape = SubResource("BoxShape3D_5gx2l")
+debug_color = Color(0.992157, 0, 0.227451, 1)
+
+[node name="sliideTrigger2" type="Area3D" parent="."]
+transform = Transform3D(-2.21467, 0, 0, 0, 1.99241, 0, 0, 0, 1.99241, 3.82181, 0, 0)
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sliideTrigger2"]
+transform = Transform3D(0.0851974, 0, 0, 0, 0.999992, 0, 0, 0, 4.99997, 4.00117, 0.0183326, -1.57021)
 shape = SubResource("BoxShape3D_5gx2l")
 debug_color = Color(0.992157, 0, 0.227451, 1)
