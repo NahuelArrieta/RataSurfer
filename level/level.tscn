@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=12 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
@@ -171,7 +171,7 @@ environment = SubResource("Environment_vkbyq")
 [node name="Player" parent="." instance=ExtResource("1_7lnir")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.931526, 0.363674, 0, -0.363674, 0.931526, 4.41345, 8.56721, 6.37332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38588, 6.373)
 
 [node name="ModuleHandler" type="Node3D" parent="."]
 script = ExtResource("2_5gx2l")
@@ -184,7 +184,8 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6035, 0.909212, -8.48823)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
