@@ -11,7 +11,7 @@ func _ready() -> void:
 	right_ray.set_target_position(Vector3(lane_size, 0, 0))
 	left_ray.set_target_position(Vector3(-lane_size, 0, 0))
 	
-var lane := -1
+var lane := 0
 
 func is_sliding() -> bool:
 	return abs(lane) == 2
