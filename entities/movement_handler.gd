@@ -59,7 +59,6 @@ func can_slide(direction) -> bool:
 		rayCast = left_ray
 	
 	return rayCast.is_colliding()
-		
 
 func handle_slide_movement():
 	pass

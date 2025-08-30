@@ -7,5 +7,3 @@ func _process(delta):
 		var is_sliding = movement_handler.is_sliding()
 		if is_sliding:
 			print("DEBUG: Jugador está deslizándose")
-		else:
-			print("DEBUG: Jugador NO está deslizándose")
