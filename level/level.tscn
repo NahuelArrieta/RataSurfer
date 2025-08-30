@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
+[ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -172,6 +173,12 @@ environment = SubResource("Environment_vkbyq")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.931526, 0.363674, 0, -0.363674, 0.931526, 4.41345, 8.56721, 6.37332)
 
+[node name="ModuleHandler" type="Node3D" parent="."]
+script = ExtResource("2_5gx2l")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
@@ -180,3 +187,5 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6035, 0.909212, -8.48823)
 mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
+
+[connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
