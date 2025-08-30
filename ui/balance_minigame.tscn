@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3x4y5")
 
-[node name="MainBar" type="ProgressBar" parent="."]
+[node name="MainBar" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,8 +30,7 @@ offset_right = 200.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 50.0
-show_percentage = false
+color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="ActiveZone" type="Control" parent="MainBar"]
 layout_mode = 1

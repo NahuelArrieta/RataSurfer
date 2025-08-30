@@ -3,9 +3,9 @@ extends Control
 # Señales
 signal success
 signal fail
-
+	
 # Nodos
-@onready var main_bar: ProgressBar = $MainBar
+@onready var main_bar: ColorRect = $MainBar
 @onready var active_zone: Control = $MainBar/ActiveZone
 @onready var icon: Control = $MainBar/Icon
 @onready var balance_bar: ProgressBar = $BalanceBar
@@ -38,11 +38,10 @@ func _input(event):
 		check_balance()
 
 func setup_ui():
-	# Barra principal
+	# Barra principal (ColorRect)
 	main_bar.custom_minimum_size = Vector2(bar_width, bar_height)
-	main_bar.max_value = bar_width
 	
-	# Zona activa (merge)
+	# Zona activa
 	var zone_width = bar_width * active_zone_width
 	var zone_start = (bar_width - zone_width) / 2
 	active_zone.custom_minimum_size = Vector2(zone_width, bar_height)
@@ -53,6 +52,7 @@ func setup_ui():
 	icon_position = bar_width / 2
 	update_icon_position()
 	
+	# Barra de equilibrio
 	balance_bar.max_value = balance_required
 	balance_bar.value = 0
 

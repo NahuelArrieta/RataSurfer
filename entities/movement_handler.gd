@@ -62,9 +62,8 @@ func can_slide(direction) -> bool:
 		
 
 func handle_slide_movement():
-	if Input.is_action_just_pressed("down"):
-		stop_sliding()
-		
+	pass
+
 func stop_sliding():
 	if lane == -2: 
 		lane = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=9 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="ArrayMesh" uid="uid://bt6tbvqmfqkjq" path="res://art/object3D/Modulo0.1.obj" id="2_5gx2l"]
@@ -43,7 +43,7 @@ mesh = ExtResource("2_5gx2l")
 
 [node name="ScoreUI" parent="UI" instance=ExtResource("3_0x9y8")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 

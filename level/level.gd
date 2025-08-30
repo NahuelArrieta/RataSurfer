@@ -15,6 +15,10 @@ func _ready():
 	
 	# Conectar señales del minijuego
 	balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
+	
+	# Agregar debug del minijuego (opcional, remover en producción)
+	var balance_debug = preload("res://ui/balance_debug.gd").new()
+	add_child(balance_debug)
 
 func _input(event):
 	# Presionar T para mostrar información del score (para pruebas)
