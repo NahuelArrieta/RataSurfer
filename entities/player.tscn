@@ -12,3 +12,13 @@ texture = ExtResource("1_merdl")
 
 [node name="MovementHandler" type="Node" parent="."]
 script = ExtResource("2_b0kkn")
+
+[node name="RightRay" type="RayCast3D" parent="."]
+target_position = Vector3(5, 0, 0)
+collision_mask = 128
+collide_with_areas = true
+
+[node name="LeftRay" type="RayCast3D" parent="."]
+target_position = Vector3(5, 0, 0)
+collision_mask = 128
+collide_with_areas = true
