@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmj5ng1b4awrq"]
+[gd_scene load_steps=6 format=3 uid="uid://dmj5ng1b4awrq"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_qjg8y"]
 [ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_qjg8y"]
+[ext_resource type="PackedScene" uid="uid://c53y8uwahfqk6" path="res://art/object3D/deco/Arbol.001(1).glb" id="3_l7v3o"]
+[ext_resource type="PackedScene" uid="uid://d2wltab8uf4ja" path="res://art/object3D/deco/Bush.003.glb" id="4_ckyoe"]
+[ext_resource type="PackedScene" uid="uid://dbnwttvf3aoxu" path="res://art/object3D/deco/Arbol.003.glb" id="5_j24uy"]
 
 [node name="Module1" instance=ExtResource("1_qjg8y")]
 
@@ -9,3 +12,15 @@
 wait_time = 3.0
 
 [node name="ModuloSimple_001" parent="." index="1" instance=ExtResource("2_qjg8y")]
+
+[node name="Arbol_001(1)" parent="." index="2" instance=ExtResource("3_l7v3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5483, 0, -20.2568)
+
+[node name="Bush_003" parent="." index="3" instance=ExtResource("4_ckyoe")]
+transform = Transform3D(0.401101, 0, -0.916034, 0, 1, 0, 0.916034, 0, 0.401101, 17.1212, 4.28425, -6.2427)
+
+[node name="Arbol_001(1)2" parent="." index="4" instance=ExtResource("3_l7v3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.7648, 0, -16.0451)
+
+[node name="Arbol_0032" parent="." index="5" instance=ExtResource("5_j24uy")]
+transform = Transform3D(0.476039, 0, 0.879424, 0, 1, 0, -0.879424, 0, 0.476039, -81.4418, 0, -18.096)
