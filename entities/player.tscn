@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://n3cq2i6dore5" path="res://entities/movement_handler.gd" id="2_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://chnbgr0gnfrxh" path="res://art/sprites/Saltar.png" id="2_e4p34"]
 [ext_resource type="Texture2D" uid="uid://c5h86th5ujfhf" path="res://art/sprites/RataTruco.png" id="3_qly61"]
-[ext_resource type="Script" path="res://entities/animation_player.gd" id="4_rfe5m"]
+[ext_resource type="Script" uid="uid://b1qv4lsclr54t" path="res://entities/animation_player.gd" id="4_rfe5m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfe5m"]
 atlas = ExtResource("1_b0kkn")
@@ -286,7 +286,8 @@ _data = {
 &"slide": SubResource("Animation_d2i2q")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qly61"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qly61"]
+size = Vector3(1, 1, 0.0563965)
 
 [node name="Player" type="CharacterBody3D"]
 
@@ -328,7 +329,7 @@ script = ExtResource("4_rfe5m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-shape = SubResource("SphereShape3D_qly61")
+shape = SubResource("BoxShape3D_qly61")
 debug_color = Color(0.892928, 0.000227755, 0.785752, 0.42)
 
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]

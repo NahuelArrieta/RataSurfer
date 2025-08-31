@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dntgph4xlgjou"]
+[gd_scene load_steps=2 format=3 uid="uid://dntgph4xlgjou"]
 
 [ext_resource type="Script" uid="uid://ds4jcl5hexpxp" path="res://obstacles/baseObstacle.gd" id="1_5dmk2"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_8btp0"]
 
 [node name="BaseObstacle" type="Area3D"]
 script = ExtResource("1_5dmk2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_8btp0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

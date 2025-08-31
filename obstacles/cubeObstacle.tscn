@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh2wudnn66tiq"]
+[gd_scene load_steps=4 format=3 uid="uid://dh2wudnn66tiq"]
 
 [ext_resource type="PackedScene" uid="uid://dntgph4xlgjou" path="res://obstacles/baseObstacle.tscn" id="1_0tgmi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tgmi"]
+size = Vector3(0.423828, 0.445313, 0.439697)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ms35y"]
 
 [node name="CubeObstacle" instance=ExtResource("1_0tgmi")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_0tgmi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_ms35y")
