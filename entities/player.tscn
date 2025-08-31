@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://5ylubghgfke4"]
+[gd_scene load_steps=41 format=3 uid="uid://5ylubghgfke4"]
 
 [ext_resource type="Texture2D" uid="uid://gj7oli6ijf64" path="res://art/sprites/PowerVino.png" id="1_b0kkn"]
 [ext_resource type="Script" uid="uid://n3cq2i6dore5" path="res://entities/movement_handler.gd" id="2_b0kkn"]
@@ -286,6 +286,8 @@ _data = {
 &"slide": SubResource("Animation_d2i2q")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qly61"]
+
 [node name="Player" type="CharacterBody3D"]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -323,6 +325,11 @@ libraries = {
 }
 autoplay = "idle"
 script = ExtResource("4_rfe5m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_qly61")
+debug_color = Color(0.892928, 0.000227755, 0.785752, 0.42)
 
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]
 [connection signal="timeout" from="MovementHandler/JumpTimer" to="MovementHandler" method="_on_jump_timer_timeout"]

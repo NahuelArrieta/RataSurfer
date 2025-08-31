@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://vmctgci7ykxm"]
 
-[ext_resource type="Script" uid="uid://cj3fksdrwc78j" path="res://ui/StartMenu.gd" id="1_bx376"]
+[ext_resource type="Script" path="res://ui/StartMenu.gd" id="1_bx376"]
 [ext_resource type="Texture2D" uid="uid://bxdenpiakhh3f" path="res://art/png/panel1.png" id="2_panel1"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

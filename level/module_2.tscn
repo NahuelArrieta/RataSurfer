@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2d0kl0fx30o1"]
+[gd_scene load_steps=4 format=3 uid="uid://b2d0kl0fx30o1"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_sk7ld"]
 [ext_resource type="PackedScene" uid="uid://cthiktf3nq7kb" path="res://art/object3D/Modulo.002 (1).glb" id="2_sk7ld"]
+[ext_resource type="PackedScene" uid="uid://dntgph4xlgjou" path="res://obstacles/obstacle.tscn" id="3_u6sgr"]
 
 [node name="Module2" instance=ExtResource("1_sk7ld")]
 
 [node name="Modulo_002 (1)" parent="." index="0" instance=ExtResource("2_sk7ld")]
+
+[node name="Obstacle" parent="." index="2" instance=ExtResource("3_u6sgr")]

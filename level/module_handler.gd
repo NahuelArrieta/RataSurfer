@@ -1,6 +1,6 @@
 extends Node3D
 
-const MODULE_1 = preload("res://Level/module_1.tscn")
+const MODULE_1 = preload("res://level/module_1.tscn")
 const MODULE_2 = preload("res://level/module_2.tscn")
 const MODULE_3 = preload("res://level/module_3.tscn")
 

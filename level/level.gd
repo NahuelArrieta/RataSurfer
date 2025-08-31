@@ -15,6 +15,8 @@ func _ready():
 	
 	# Conectar señales del minijuego
 	balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
+	Global.player_died.connect(on_player_died)
+
 	
 func _input(event):
 	# Presionar T para mostrar información del score (para pruebas)
@@ -33,3 +35,7 @@ func _on_balance_minigame_completed(success: bool):
 	else:
 		print("💥 Minijuego fallido")
 		# Aquí puedes agregar penalizaciones, efectos, etc.
+		
+func on_player_died():
+	# The global script will handle the scene change.
+	Global.change_to_game_over()
