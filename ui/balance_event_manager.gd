@@ -23,6 +23,12 @@ func _process(delta):
 	if is_sliding and not was_sliding:
 		request_minigame()
 	
+	# Si está deslizándose, verificar si la tubería ha terminado
+	if is_sliding and minigame_instance and minigame_instance.is_active:
+		if movement_handler.check_pipe_end():
+			# La tubería ha terminado, forzar fallo del minijuego
+			minigame_instance.force_fail()
+	
 	was_sliding = is_sliding
 
 func request_minigame():
@@ -36,9 +42,9 @@ func show_balance_minigame():
 	minigame_instance = balance_minigame.instantiate()
 	get_tree().current_scene.add_child(minigame_instance)
 	
-	# Conectar señales
-	minigame_instance.success.connect(_on_minigame_success)
-	minigame_instance.fail.connect(_on_minigame_fail)
+	# Conectar señales con CONNECT_ONE_SHOT 
+	minigame_instance.success.connect(_on_minigame_success, CONNECT_ONE_SHOT)
+	minigame_instance.fail.connect(_on_minigame_fail, CONNECT_ONE_SHOT)
 	
 func _on_minigame_success():
 	if movement_handler:
