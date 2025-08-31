@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccaoc4o5ddsql"
+path="res://.godot/imported/Bluezone_BC0298_designed_water_texture_014.wav-348fc572e93d9c6d693cf0c37ebf6a83.sample"
+
+[deps]
+
+source_file="res://sound/BluezoneCorp - Designed Water/Bluezone_BC0298_designed_water_texture_014.wav"
+dest_files=["res://.godot/imported/Bluezone_BC0298_designed_water_texture_014.wav-348fc572e93d9c6d693cf0c37ebf6a83.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

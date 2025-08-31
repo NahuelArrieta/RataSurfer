@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=16 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://caa612nngg7y4" path="res://ui/score_ui.tscn" id="3_0x9y8"]
 [ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
 [ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
+[ext_resource type="AudioStream" uid="uid://dwurvomnktoeg" path="res://sound/AMBTown_Town Square 02_Jake Fielding_Sounds of Spain.wav" id="6_44x8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -201,9 +202,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ktfr2")
-volume_db = -10.0
+volume_db = -12.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_44x8d")
+volume_db = -5.0
 autoplay = true
 
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
