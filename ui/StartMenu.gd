@@ -1,10 +1,11 @@
 extends Control
 
 # ------------------ CONSTANTES ------------------
-const LEVEL_PATH := "res://level/level.tscn"   # Ruta de la escena de nivel
-const HOVER_SCALE := Vector2(1.1, 1.1)         # Escala al hacer hover
-const NORMAL_SCALE := Vector2(1.0, 1.0)        # Escala normal
-const BTN_ANIM_TIME := 0.18                    # Duración hover animación
+const LEVEL_PATH := "res://cutscenes/MainCutscene.tscn"
+const OPTIONS_PATH := "res://ui/OptionsMenu.tscn"
+const HOVER_SCALE := Vector2(1.1, 1.1)
+const NORMAL_SCALE := Vector2(1.0, 1.0)
+const BTN_ANIM_TIME := 0.18
 const ENTRY_FADE_TIME := 0.25
 const ENTRY_SCALE_TIME := 0.55
 const EXIT_SCALE_TIME := 0.45

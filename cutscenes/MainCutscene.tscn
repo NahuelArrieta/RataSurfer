@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://blbbmwwsrmiew"]
+
+[ext_resource type="VideoStream" uid="uid://bq0ulwdgr130r" path="res://cutscenes/espera espera, miniatura xD.ogv" id="1_ulda0"]
+[ext_resource type="Script" uid="uid://vh5fomwf11nw" path="res://cutscenes/main_cutscene.gd" id="2_k8cdg"]
+
+[node name="MainCutscene" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_k8cdg")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("1_ulda0")
+autoplay = true
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 759.0
+offset_top = 433.0
+offset_right = 814.0
+offset_bottom = 459.0
