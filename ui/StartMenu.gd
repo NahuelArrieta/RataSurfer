@@ -25,7 +25,6 @@ func _ready() -> void:
 	start_button.pivot_offset = start_button.size * 0.5
 
 	# Conexión de señales
-	start_button.pressed.connect(_on_start_pressed)
 	start_button.mouse_entered.connect(_on_button_hover)
 	start_button.mouse_exited.connect(_on_button_exit)
 
