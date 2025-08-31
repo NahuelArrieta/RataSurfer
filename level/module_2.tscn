@@ -19,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186693, 0, -22.1708)
 
 [node name="CubeObstacle4" parent="." index="5" instance=ExtResource("3_u6sgr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186693, 2.67027, -22.1708)
+
 [ext_resource type="PackedScene" uid="uid://lv00wsula01r" path="res://art/object3D/ModuloSimple.002.glb" id="2_sk7ld"]
 
 [node name="Module2" instance=ExtResource("1_sk7ld")]
