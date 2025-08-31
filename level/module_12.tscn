@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc6qk45xxr438"]
+[gd_scene load_steps=8 format=3 uid="uid://bc6qk45xxr438"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_favod"]
 [ext_resource type="PackedScene" uid="uid://lv00wsula01r" path="res://art/object3D/ModuloSimple.002.glb" id="2_favod"]
 [ext_resource type="PackedScene" uid="uid://b6j8247dnue3" path="res://art/object3D/deco/Bush.002.glb" id="3_1r0u8"]
+[ext_resource type="PackedScene" uid="uid://bl2fkoffxy0co" path="res://art/object3D/ProppsColicion/Piedra.001.glb" id="3_21iau"]
 [ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="4_pv66a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ssdp"]
@@ -23,6 +24,12 @@ mesh = SubResource("BoxMesh_1ssdp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
 shape = SubResource("BoxShape3D_ynywu")
+
+[node name="Piedra_001" parent="Area3D" index="2" instance=ExtResource("3_21iau")]
+transform = Transform3D(0.241871, 0, 0.970308, 0, 1, 0, -0.970308, 0, 0.241871, 0, 0, 4.96328)
+
+[node name="Piedra_002" parent="Area3D" index="3" instance=ExtResource("3_21iau")]
+transform = Transform3D(-0.0837821, 0, -0.996484, 0, 1, 0, 0.996484, 0, -0.0837821, 0, 0, -4.22608)
 
 [node name="Bush_0022" parent="." index="3" instance=ExtResource("3_1r0u8")]
 transform = Transform3D(0.439704, 0, -0.898143, 0, 1, 0, 0.898143, 0, 0.439704, -15.4984, 4.39808, -19.0472)
