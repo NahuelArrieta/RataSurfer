@@ -233,11 +233,13 @@ one_shot = true
 [node name="RightRay" type="RayCast3D" parent="."]
 target_position = Vector3(5, 0, 0)
 collision_mask = 128
+hit_from_inside = true
 collide_with_areas = true
 
 [node name="LeftRay" type="RayCast3D" parent="."]
 target_position = Vector3(5, 0, 0)
 collision_mask = 128
+hit_from_inside = true
 collide_with_areas = true
 
 [node name="ImporterMeshInstance3D" type="ImporterMeshInstance3D" parent="."]
