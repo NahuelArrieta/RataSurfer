@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg85a7eujpo6p"]
 
 [ext_resource type="Script" uid="uid://bunealm3ly3bs" path="res://ui/OptionesMenu.gd" id="1_q2aw3"]
-[ext_resource type="Texture2D" uid="uid://tpl4kgy6hf4f" path="res://art/png/GameOver.png" id="2_panel4"]
+[ext_resource type="Texture2D" uid="uid://b14pe4p2krq3r" path="res://art/png/SettingsMenu.png" id="2_876tf"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_panel4")
+texture = ExtResource("2_876tf")
 expand_mode = 1
 stretch_mode = 6
 
