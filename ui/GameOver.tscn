@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://beqh1i6h52ax8" path="res://ui/GameOver.gd" id="1_s2b5w"]
 [ext_resource type="Texture2D" uid="uid://tpl4kgy6hf4f" path="res://art/png/panel4.png" id="2_panel4"]
 
-[node name="Control" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
