@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://f0pg6ag1yxi4"]
+
+[ext_resource type="Script" uid="uid://b2cxmyixrkbja" path="res://level/environment_module.gd" id="1_fx73b"]
+
+[node name="EnvironmentModule" type="CharacterBody3D"]
+script = ExtResource("1_fx73b")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

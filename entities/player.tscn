@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://5ylubghgfke4"]
+[gd_scene load_steps=4 format=3 uid="uid://5ylubghgfke4"]
 
 [ext_resource type="Texture2D" uid="uid://ck5rvx6etc8mn" path="res://icon.svg" id="1_merdl"]
 [ext_resource type="Script" uid="uid://n3cq2i6dore5" path="res://entities/movement_handler.gd" id="2_b0kkn"]
+
+[sub_resource type="ImporterMesh" id="ImporterMesh_b0kkn"]
 
 [node name="Player" type="CharacterBody3D"]
 
@@ -22,3 +24,6 @@ collide_with_areas = true
 target_position = Vector3(5, 0, 0)
 collision_mask = 128
 collide_with_areas = true
+
+[node name="ImporterMeshInstance3D" type="ImporterMeshInstance3D" parent="."]
+mesh = SubResource("ImporterMesh_b0kkn")
