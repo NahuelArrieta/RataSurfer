@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://0eugt6t81e8f"]
+[gd_scene load_steps=6 format=3 uid="uid://0eugt6t81e8f"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_kgw76"]
 [ext_resource type="PackedScene" uid="uid://blwf7cchy4f5n" path="res://art/object3D/ModuloPipeline.002.glb" id="2_al8bq"]
@@ -6,14 +6,29 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgw76"]
 size = Vector3(3.52597, 9.48254, 30.1692)
 
+[sub_resource type="BoxMesh" id="BoxMesh_kgw76"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al8bq"]
+size = Vector3(2, 2, 2)
+
 [node name="Module4" instance=ExtResource("1_kgw76")]
 
 [node name="ModuloPipeline_002" parent="." index="1" instance=ExtResource("2_al8bq")]
 
-[node name="Area3D" type="Area3D" parent="." index="2"]
+[node name="SliderArea3D" type="Area3D" parent="." index="2"]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35432, -1.95428, -14.5846)
 shape = SubResource("BoxShape3D_kgw76")
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -14.7834)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_kgw76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_al8bq")

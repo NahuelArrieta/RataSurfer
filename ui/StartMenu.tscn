@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vmctgci7ykxm"]
+[gd_scene load_steps=4 format=3 uid="uid://vmctgci7ykxm"]
 
 [ext_resource type="Script" uid="uid://cj3fksdrwc78j" path="res://ui/StartMenu.gd" id="1_bx376"]
 [ext_resource type="Texture2D" uid="uid://bxdenpiakhh3f" path="res://art/png/panel1.png" id="2_panel1"]
+[ext_resource type="AudioStream" uid="uid://iwalpmekjdd4" path="res://sound/MEGAJAM INVIERNO RATTTTTTTTTTTTTTTTTTT.mp3" id="3_g1ph5"]
 
 [node name="Control2" type="Control"]
 layout_mode = 3
@@ -66,6 +67,11 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "OPCIONES"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g1ph5")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button2" to="." method="_on_options_pressed"]

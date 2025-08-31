@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var gameover_ui: Control = $UI/GameoverUI
+
 func _ready():
 	print("Nivel iniciado")
 
@@ -41,3 +43,8 @@ func _on_balance_minigame_completed(success: bool):
 		print("🎉 ¡Minijuego completado exitosamente!")
 	else:
 		print("💥 Minijuego fallido")
+
+
+func _on_player_player_touched_obstacle() -> void:
+	gameover_ui.show()
+	get_tree().paused = true

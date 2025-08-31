@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci1erp0qn0g44"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_pbcsk"]
+[ext_resource type="PackedScene" uid="uid://751buaa12h1i" path="res://art/object3D/ModuloPipeline.001.glb" id="2_smp37"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw8sk"]
+size = Vector3(2.5042, 7.88, 31.986)
+
+[sub_resource type="BoxMesh" id="BoxMesh_onnxa"]
+size = Vector3(13, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gex0"]
+size = Vector3(13, 5, 2)
+
+[node name="EnvironmentModule" instance=ExtResource("1_pbcsk")]
+
+[node name="SliderArea3D" type="Area3D" parent="." index="1"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -13.358)
+shape = SubResource("BoxShape3D_fw8sk")
+debug_color = Color(0.996594, 0, 0.183643, 0.42)
+
+[node name="ModuloPipeline_001" parent="." index="2" instance=ExtResource("2_smp37")]
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.752)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_onnxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_4gex0")
