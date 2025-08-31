@@ -11,7 +11,6 @@ var time_elapsed: float = 0.0
 const SAVE_FILE = "user://high_score.save"
 
 func _ready():
-	print("ScoreManager iniciado")
 	load_high_score()
 
 func _process(delta: float) -> void:
