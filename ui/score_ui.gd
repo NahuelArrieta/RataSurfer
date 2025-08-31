@@ -1,7 +1,7 @@
 extends Control
 
-@onready var score_label: Label = $ScoreLabel
-@onready var high_score_label: Label = $HighScoreLabel
+@onready var score_label: Label = $HBoxContainer/ScoreLabel
+@onready var high_score_label: Label = $HBoxContainer/HighScoreLabel
 
 var score_manager: Node
 

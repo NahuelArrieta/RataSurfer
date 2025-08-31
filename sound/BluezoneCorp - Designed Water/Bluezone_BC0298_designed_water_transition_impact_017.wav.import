@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsclddck0ayoi"
+path="res://.godot/imported/Bluezone_BC0298_designed_water_transition_impact_017.wav-5c55120a69635dd49a9e17554c001fce.sample"
+
+[deps]
+
+source_file="res://sound/BluezoneCorp - Designed Water/Bluezone_BC0298_designed_water_transition_impact_017.wav"
+dest_files=["res://.godot/imported/Bluezone_BC0298_designed_water_transition_impact_017.wav-5c55120a69635dd49a9e17554c001fce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
