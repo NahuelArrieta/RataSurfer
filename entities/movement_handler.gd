@@ -57,8 +57,6 @@ func start_sliding(direction):
 	player.position.y = lane_size ##TODO
 	lane += 1 * direction
 	
-
-
 func can_slide(direction) -> bool:
 	var rayCast: RayCast3D
 	if direction > 0: 

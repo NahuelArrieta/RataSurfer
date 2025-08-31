@@ -22,7 +22,7 @@ signal fail
 
 # Variables
 var zone_position: float = 0.0
-var zone_direction: int = -1  # -1 = izquierda, 1 = derecha
+var zone_direction: int = -1 
 var icon_position: float = 0.0
 var icon_direction: int = 1   # Dirección del ícono
 var time_on_icon: float = 0.0
@@ -130,44 +130,28 @@ func check_balance(delta):
 	var zone_end = zone_position + active_zone.custom_minimum_size.x
 	var is_in_zone = (icon_center >= zone_start and icon_center <= zone_end)
 	
-	# Detectar cambio de estado (entrar/salir de la zona)
-	if is_in_zone != was_in_zone:
-		if is_in_zone:
-			print("Entró a la zona activa - Contadores pausados/reanudados")
-		else:
-			print("Salió de la zona activa - Contadores pausados/reanudados")
-		was_in_zone = is_in_zone
-	
 	# Verificar si la zona activa está sobre el ícono
 	if is_in_zone:
 		# Zona activa sobre el ícono
 		time_on_icon += delta
 		# NO resetear time_outside_zone - se mantiene acumulativo
-		balance_bar.value = time_on_icon
-		
-		print("Tiempo en la zona: ", time_on_icon, "/", time_required)
-		
+		balance_bar.value = time_on_icon		
 		if time_on_icon >= time_required:
 			on_success()
 	else:
 		# Zona activa fuera del ícono
 		time_outside_zone += delta
 		# NO resetear time_on_icon - se mantiene acumulativo
-		balance_bar.value = time_on_icon  # Mantener el progreso visual
-		
-		print("Tiempo fuera de la zona: ", time_outside_zone, "/", time_to_fail)
-		
+		balance_bar.value = time_on_icon  # Mantener el progreso visual		
 		if time_outside_zone >= time_to_fail:
 			on_fail()
 
 func on_success():
-	print("¡Minijuego completado con éxito!")
 	is_active = false
 	success.emit()
 	hide()
 
 func on_fail():
-	print("Minijuego fallido - 2 segundos acumulados fuera de la zona")
 	is_active = false
 	fail.emit()
 	hide()
