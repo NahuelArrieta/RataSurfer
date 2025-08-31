@@ -1,5 +1,7 @@
 extends Node
 
+signal started_sliding
+signal stopped_sliding
 signal player_jumped
 
 @onready var player: CharacterBody3D = $".."
@@ -60,6 +62,7 @@ func start_sliding(direction):
 	if !can_slide(direction):
 		return
 	
+	started_sliding.emit()
 	# Guardar la dirección de deslizamiento
 	sliding_dir = direction
 	
@@ -98,6 +101,7 @@ func handle_slide_movement():
 	pass
 
 func stop_sliding():
+	stopped_sliding.emit()
 	if lane == -2: 
 		lane = -1
 	else: 

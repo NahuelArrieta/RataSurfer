@@ -342,5 +342,7 @@ pitch_scale = 1.5
 
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]
 [connection signal="player_jumped" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_player_jumped"]
+[connection signal="started_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_started_sliding"]
+[connection signal="stopped_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_stopped_sliding"]
 [connection signal="timeout" from="MovementHandler/JumpTimer" to="MovementHandler" method="_on_jump_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
