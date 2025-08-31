@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://di3osoek2hkg6"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_h20th"]
+[ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_qbe5e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0js0f"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awed4"]
+size = Vector3(2, 2, 2)
+
+[node name="Module1" instance=ExtResource("1_h20th")]
+
+[node name="Timer" parent="." index="0"]
+wait_time = 3.0
+
+[node name="ModuloSimple_001" parent="." index="1" instance=ExtResource("2_qbe5e")]
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.201)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_0js0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_awed4")

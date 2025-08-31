@@ -197,7 +197,7 @@ autostart = true
 
 [node name="Control" parent="UI" instance=ExtResource("5_ivpvi")]
 
-[node name="Control2" parent="UI" instance=ExtResource("6_0v1st")]
+[node name="GameoverUI" parent="UI" instance=ExtResource("6_0v1st")]
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -218,4 +218,5 @@ stream = ExtResource("6_44x8d")
 volume_db = -5.0
 autoplay = true
 
+[connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
