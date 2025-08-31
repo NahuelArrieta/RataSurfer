@@ -181,7 +181,7 @@ environment = SubResource("Environment_vkbyq")
 [node name="Player" parent="." instance=ExtResource("1_7lnir")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.931526, 0.363674, 0, -0.363674, 0.931526, 4.41345, 8.56721, 6.37332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38588, 6.373)
 
 [node name="ModuleHandler" type="Node3D" parent="."]
 script = ExtResource("2_5gx2l")
@@ -198,8 +198,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6035, 0.909212, -8.48823)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
