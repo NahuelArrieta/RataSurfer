@@ -7,7 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
+sky_horizon_color = Color(0.84, 0.67424, 0.5712, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
 [sub_resource type="Sky" id="Sky_qohg2"]
