@@ -3,6 +3,8 @@ extends Node
 signal started_sliding
 signal stopped_sliding
 signal player_jumped
+signal moved_right
+signal moved_left
 
 @onready var player: CharacterBody3D = $".."
 @onready var right_ray: RayCast3D = $"../RightRay"
@@ -38,9 +40,11 @@ func _physics_process(delta: float) -> void:
 func handle_lane_movement():
 	if Input.is_action_just_pressed("left"):
 		handle_x_movement(-1)
+		moved_left.emit()
 		
 	elif Input.is_action_just_pressed("right"):
 		handle_x_movement(1)
+		moved_right.emit()
 	
 	if Input.is_action_just_pressed("jump") and not is_jumping:
 		is_jumping = true
