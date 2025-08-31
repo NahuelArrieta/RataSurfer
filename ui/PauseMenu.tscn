@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6cgm08dnlml"]
 
 [ext_resource type="Script" uid="uid://ckii5wm31kcfe" path="res://ui/PauseMenu.gd" id="1_c7v6e"]
-[ext_resource type="Texture2D" uid="uid://tpl4kgy6hf4f" path="res://art/png/panel4.png" id="2_panel4"]
+[ext_resource type="Texture2D" uid="uid://bxdenpiakhh3f" path="res://art/png/PauseMenu.png" id="2_8tehv"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -19,9 +19,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_panel4")
+texture = ExtResource("2_8tehv")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
