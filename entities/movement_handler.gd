@@ -15,6 +15,8 @@ func _ready() -> void:
 	left_ray.set_target_position(Vector3(-lane_size, 0, 0))
 	
 var lane := 0
+# Variable para guardar la dirección de deslizamiento
+var sliding_dir: int = 0  # -1 izquierda, 1 derecha
 
 func is_sliding() -> bool:
 	return abs(lane) == 2
@@ -28,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		handle_slide_movement()
 	else: 
 		handle_lane_movement()
-
 
 func handle_lane_movement():
 	if Input.is_action_just_pressed("left"):
@@ -55,6 +56,10 @@ func handle_x_movement(direction):
 func start_sliding(direction):
 	if !can_slide(direction):
 		return
+	
+	# Guardar la dirección de deslizamiento
+	sliding_dir = direction
+	
 	lane += 1 * direction
 
 	if lane == -2:
@@ -71,6 +76,20 @@ func can_slide(direction) -> bool:
 		rayCast = left_ray
 	
 	return rayCast.is_colliding()
+
+# Función para verificar si la tubería ha terminado
+func check_pipe_end() -> bool:
+	if not is_sliding():
+		return false
+	
+	var rayCast: RayCast3D
+	if sliding_dir > 0:
+		rayCast = right_ray
+	else:
+		rayCast = left_ray
+	
+	# Si ya no hay colisión, la tubería ha terminado
+	return not rayCast.is_colliding()
 
 func handle_slide_movement():
 	pass
