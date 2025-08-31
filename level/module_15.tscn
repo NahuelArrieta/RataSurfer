@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhx06g8dapsxt"]
+[gd_scene load_steps=7 format=3 uid="uid://bhx06g8dapsxt"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_wr75u"]
 [ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_djacl"]
+[ext_resource type="PackedScene" uid="uid://c53y8uwahfqk6" path="res://art/object3D/deco/Arbol.001(1).glb" id="3_dw1j0"]
+[ext_resource type="PackedScene" uid="uid://b6j8247dnue3" path="res://art/object3D/deco/Bush.002.glb" id="4_x1410"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0js0f"]
 size = Vector3(15, 2, 2)
@@ -24,3 +26,18 @@ mesh = SubResource("BoxMesh_0js0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
 shape = SubResource("BoxShape3D_awed4")
+
+[node name="Arbol_001(1)" parent="." index="3" instance=ExtResource("3_dw1j0")]
+transform = Transform3D(0.490189, 0, 0.871616, 0, 1, 0, -0.871616, 0, 0.490189, -34.949, 0, -13.242)
+
+[node name="Arbol_001(1)2" parent="." index="4" instance=ExtResource("3_dw1j0")]
+transform = Transform3D(0.490189, 0, 0.871616, 0, 1, 0, -0.871616, 0, 0.490189, 38.4111, 0, -24.4178)
+
+[node name="Arbol_001(1)3" parent="." index="5" instance=ExtResource("3_dw1j0")]
+transform = Transform3D(-0.31061, 0, 0.950537, 0, 1, 0, -0.950537, 0, -0.31061, 24.3579, 0, -12.0566)
+
+[node name="Arbol_001(1)4" parent="." index="6" instance=ExtResource("3_dw1j0")]
+transform = Transform3D(-0.31061, 0, 0.950537, 0, 1, 0, -0.950537, 0, -0.31061, -55.3168, 0, -19.9353)
+
+[node name="Bush_0022" parent="." index="7" instance=ExtResource("4_x1410")]
+transform = Transform3D(0.410671, 0, -0.911784, 0, 1, 0, 0.911784, 0, 0.410671, 18.8611, 4.52758, -8.20538)
