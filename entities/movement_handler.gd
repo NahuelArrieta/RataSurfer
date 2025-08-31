@@ -18,7 +18,6 @@ func is_sliding() -> bool:
 		
 
 func _physics_process(delta: float) -> void:
-
 	if is_sliding():
 		handle_slide_movement()
 	else: 
