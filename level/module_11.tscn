@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://di3osoek2hkg6"]
+[gd_scene load_steps=8 format=3 uid="uid://di3osoek2hkg6"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_h20th"]
 [ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_qbe5e"]
+[ext_resource type="PackedScene" uid="uid://ccr6isocahb0g" path="res://art/object3D/ProppsColicion/LataCerveza.glb" id="3_aiucr"]
 [ext_resource type="PackedScene" uid="uid://b2xu7a4ock7g5" path="res://art/object3D/deco/Bush.001.glb" id="3_qbe5e"]
 [ext_resource type="PackedScene" uid="uid://cblubojj87bhs" path="res://art/object3D/deco/Arbol.004.glb" id="4_djg3n"]
 
@@ -22,10 +23,20 @@ wait_time = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.201)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+visible = false
 mesh = SubResource("BoxMesh_0js0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
 shape = SubResource("BoxShape3D_awed4")
+
+[node name="LataCerveza" parent="Area3D" index="2" instance=ExtResource("3_aiucr")]
+transform = Transform3D(0.974051, 0, 0.226328, -0.055068, 0.969949, 0.236997, -0.219527, -0.24331, 0.944779, 0, 0, -0.815418)
+
+[node name="LataCerveza2" parent="Area3D" index="3" instance=ExtResource("3_aiucr")]
+transform = Transform3D(0.941923, 0, -0.33583, -0.113449, 0.941211, -0.318199, 0.316087, 0.337818, 0.886548, 0.698772, 0, 0.126818)
+
+[node name="LataCerveza3" parent="Area3D" index="4" instance=ExtResource("3_aiucr")]
+transform = Transform3D(1, 0, 0, 0, 0.800166, -0.599778, 0, 0.599778, 0.800166, -0.347695, 0, 0.126818)
 
 [node name="Bush_0012" parent="." index="3" instance=ExtResource("3_qbe5e")]
 transform = Transform3D(-0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, -0.0276251, -18.8385, 5.74915, -19.5116)

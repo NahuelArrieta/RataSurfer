@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dox0vvvay4ei4"]
+[gd_scene load_steps=9 format=3 uid="uid://dox0vvvay4ei4"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_0js0f"]
 [ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_awed4"]
 [ext_resource type="PackedScene" uid="uid://b6j8247dnue3" path="res://art/object3D/deco/Bush.002.glb" id="3_ivcxa"]
+[ext_resource type="PackedScene" uid="uid://dhv2vqilds751" path="res://art/object3D/ProppsColicion/BotellaLeche1.glb" id="3_xblk7"]
 [ext_resource type="PackedScene" uid="uid://d2wltab8uf4ja" path="res://art/object3D/deco/Bush.003.glb" id="4_rnanl"]
+[ext_resource type="PackedScene" uid="uid://djdctrivsjwme" path="res://art/object3D/ProppsColicion/BotellaLeche2.glb" id="4_vwpwi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0js0f"]
 size = Vector3(2, 2, 2)
@@ -22,10 +24,17 @@ wait_time = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -26.201)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+visible = false
 mesh = SubResource("BoxMesh_0js0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
 shape = SubResource("BoxShape3D_awed4")
+
+[node name="BotellaLeche1" parent="Area3D" index="2" instance=ExtResource("3_xblk7")]
+transform = Transform3D(0.619294, -0.718806, 0.3159, 0.640313, 0.695211, 0.326622, -0.454395, 0, 0.8908, 0, 0, 0)
+
+[node name="BotellaLeche2" parent="Area3D" index="3" instance=ExtResource("4_vwpwi")]
+transform = Transform3D(0.942752, 0.333494, 0, -0.333494, 0.942752, 0, 0, 0, 1, 0, 0, 0.653839)
 
 [node name="Bush_0022" parent="." index="3" instance=ExtResource("3_ivcxa")]
 transform = Transform3D(0.0153234, 0, -0.999883, 0, 1, 0, 0.999883, 0, 0.0153234, 18.3307, 4.16548, -25.5623)

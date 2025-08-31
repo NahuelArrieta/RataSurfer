@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw512ws5ff3nk"]
+[gd_scene load_steps=6 format=3 uid="uid://dw512ws5ff3nk"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_bc0jy"]
 [ext_resource type="PackedScene" uid="uid://lv00wsula01r" path="res://art/object3D/ModuloSimple.002.glb" id="2_sl4td"]
 [ext_resource type="PackedScene" uid="uid://bl2fkoffxy0co" path="res://art/object3D/ProppsColicion/Piedra.001.glb" id="3_ao3a1"]
 [ext_resource type="PackedScene" uid="uid://c53y8uwahfqk6" path="res://art/object3D/deco/Arbol.001(1).glb" id="3_sl4td"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_sk7ld"]
-size = Vector3(2, 5, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6sgr"]
 size = Vector3(1, 5, 15)
@@ -18,17 +15,14 @@ size = Vector3(1, 5, 15)
 [node name="Area3D" type="Area3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.922)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
-mesh = SubResource("BoxMesh_sk7ld")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("BoxShape3D_u6sgr")
 
-[node name="Piedra_001" parent="Area3D" index="2" instance=ExtResource("3_ao3a1")]
-transform = Transform3D(0.241702, 0, -0.970351, 0, 1, 0, 0.970351, 0, 0.241702, 0, 0, 4.64176)
+[node name="Piedra_001" parent="Area3D" index="1" instance=ExtResource("3_ao3a1")]
+transform = Transform3D(0.145021, 0, -0.58221, 0, 0.6, 0, 0.58221, 0, 0.145021, 0, 0, 3.74406)
 
-[node name="Piedra_002" parent="Area3D" index="3" instance=ExtResource("3_ao3a1")]
-transform = Transform3D(0.53391, 0, 0.845541, 0, 1, 0, -0.845541, 0, 0.53391, 0, 0, -1.59411)
+[node name="Piedra_002" parent="Area3D" index="2" instance=ExtResource("3_ao3a1")]
+transform = Transform3D(0.320346, 0, 0.507325, 0, 0.6, 0, -0.507325, 0, 0.320346, 0, 0, -0.406759)
 
 [node name="Arbol_001(1)" parent="." index="3" instance=ExtResource("3_sl4td")]
 transform = Transform3D(0.455483, 0, 0.890245, 0, 1, 0, -0.890245, 0, 0.455483, -19.0618, 1.90735e-06, -14.5558)
