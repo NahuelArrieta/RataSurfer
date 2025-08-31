@@ -1,7 +1,7 @@
 extends Control
 
 # ------------------ CONSTANTES ------------------
-const LEVEL_PATH := "res://level/level.tscn"
+const LEVEL_PATH := "res://cutscenes/MainCutscene.tscn"
 const OPTIONS_PATH := "res://ui/OptionsMenu.tscn"
 const HOVER_SCALE := Vector2(1.1, 1.1)
 const NORMAL_SCALE := Vector2(1.0, 1.0)
