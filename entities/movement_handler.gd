@@ -9,6 +9,8 @@ signal player_jumped
 
 @export var lane_size := 5
 
+var is_jumping := false
+
 func _ready() -> void:
 	# Move the rays to the sides
 	right_ray.set_target_position(Vector3(lane_size, 0, 0))
@@ -38,7 +40,8 @@ func handle_lane_movement():
 	elif Input.is_action_just_pressed("right"):
 		handle_x_movement(1)
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not is_jumping:
+		is_jumping = true
 		player_jumped.emit()
 		player.position += Vector3(0, 2.5, 0)
 		jump_timer.start()
@@ -105,3 +108,4 @@ func stop_sliding():
 
 func _on_jump_timer_timeout() -> void:
 	player.position -= Vector3(0, 2.5, 0)
+	is_jumping = false
