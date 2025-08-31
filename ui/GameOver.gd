@@ -36,6 +36,9 @@ func _ready() -> void:
 	# Esperar un frame para calcular pivotes
 	await get_tree().process_frame
 	_set_pivots_to_center()
+	
+	Global.player_died.connect(show_game_over)
+	
 
 
 # ------------------ MOSTRAR GAME OVER ------------------
