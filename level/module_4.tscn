@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://0eugt6t81e8f"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_kgw76"]
+[ext_resource type="PackedScene" uid="uid://blwf7cchy4f5n" path="res://art/object3D/ModuloPipeline.002.glb" id="2_al8bq"]
+[ext_resource type="PackedScene" uid="uid://dbnwttvf3aoxu" path="res://art/object3D/deco/Arbol.003.glb" id="3_al8bq"]
+[ext_resource type="PackedScene" uid="uid://c5igbklrobvc1" path="res://art/object3D/deco/Arbol.001.glb" id="4_2x7mc"]
+[ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="5_5dmb4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgw76"]
+size = Vector3(3.52597, 9.48254, 30.1692)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgw76"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al8bq"]
+size = Vector3(2, 2, 2)
+
+[node name="Module4" instance=ExtResource("1_kgw76")]
+
+[node name="ModuloPipeline_002" parent="." index="1" instance=ExtResource("2_al8bq")]
+
+[node name="SliderArea3D" type="Area3D" parent="." index="2"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35432, -1.95428, -14.5846)
+shape = SubResource("BoxShape3D_kgw76")
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -14.7834)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_kgw76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_al8bq")
+
+[node name="Arbol_0032" parent="." index="4" instance=ExtResource("3_al8bq")]
+transform = Transform3D(0.895028, 0, 0.44601, 0, 1, 0, -0.44601, 0, 0.895028, 23.9158, 0, -24.9091)
+
+[node name="Arbol_0033" parent="." index="5" instance=ExtResource("3_al8bq")]
+transform = Transform3D(0.254652, 0, -0.967033, 0, 1, 0, 0.967033, 0, 0.254652, 166.552, 0, -19.1901)
+
+[node name="Arbol_0034" parent="." index="6" instance=ExtResource("3_al8bq")]
+transform = Transform3D(0.959879, 0, -0.280416, 0, 1, 0, 0.280416, 0, 0.959879, -138.153, -11.7751, -37.3471)
+
+[node name="Arbol_0035" parent="." index="7" instance=ExtResource("3_al8bq")]
+transform = Transform3D(0.584065, 0, 0.811707, 0, 1, 0, -0.811707, 0, 0.584065, -65.7252, 1.52588e-05, -7.57094)
+
+[node name="Arbol_0012" parent="." index="8" instance=ExtResource("4_2x7mc")]
+transform = Transform3D(0.879956, 0, 0.475056, 0, 1, 0, -0.475056, 0, 0.879956, -106.668, 7.62939e-06, -25.2893)
+
+[node name="Casa_001" parent="." index="9" instance=ExtResource("5_5dmb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2905, 6.80666, -7.16486)

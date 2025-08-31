@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci1erp0qn0g44"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_pbcsk"]
+[ext_resource type="PackedScene" uid="uid://751buaa12h1i" path="res://art/object3D/ModuloPipeline.001.glb" id="2_smp37"]
+[ext_resource type="PackedScene" uid="uid://cblubojj87bhs" path="res://art/object3D/deco/Arbol.004.glb" id="3_1m2yn"]
+[ext_resource type="PackedScene" uid="uid://d2wltab8uf4ja" path="res://art/object3D/deco/Bush.003.glb" id="4_kfagw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw8sk"]
+size = Vector3(2.5042, 7.88, 31.986)
+
+[sub_resource type="BoxMesh" id="BoxMesh_onnxa"]
+size = Vector3(13, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gex0"]
+size = Vector3(13, 5, 2)
+
+[node name="EnvironmentModule" instance=ExtResource("1_pbcsk")]
+
+[node name="SliderArea3D" type="Area3D" parent="." index="1"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -13.358)
+shape = SubResource("BoxShape3D_fw8sk")
+debug_color = Color(0.996594, 0, 0.183643, 0.42)
+
+[node name="ModuloPipeline_001" parent="." index="2" instance=ExtResource("2_smp37")]
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.752)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_onnxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_4gex0")
+
+[node name="Arbol_004" parent="." index="4" instance=ExtResource("3_1m2yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9199, 15.6956, -23.1629)
+
+[node name="Bush_003" parent="." index="5" instance=ExtResource("4_kfagw")]
+transform = Transform3D(0.891876, 0, -0.452279, 0, 1, 0, 0.452279, 0, 0.891876, -17.6693, 3.09775, -18.2357)

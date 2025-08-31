@@ -1,6 +1,10 @@
 extends Node
 
+signal started_sliding
+signal stopped_sliding
 signal player_jumped
+signal moved_right
+signal moved_left
 
 @onready var player: CharacterBody3D = $".."
 @onready var right_ray: RayCast3D = $"../RightRay"
@@ -8,6 +12,8 @@ signal player_jumped
 @onready var jump_timer: Timer = $JumpTimer
 
 @export var lane_size := 5
+
+var is_jumping := false
 
 func _ready() -> void:
 	# Move the rays to the sides
@@ -34,11 +40,14 @@ func _physics_process(delta: float) -> void:
 func handle_lane_movement():
 	if Input.is_action_just_pressed("left"):
 		handle_x_movement(-1)
+		moved_left.emit()
 		
 	elif Input.is_action_just_pressed("right"):
 		handle_x_movement(1)
+		moved_right.emit()
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not is_jumping:
+		is_jumping = true
 		player_jumped.emit()
 		player.position += Vector3(0, 2.5, 0)
 		jump_timer.start()
@@ -57,6 +66,7 @@ func start_sliding(direction):
 	if !can_slide(direction):
 		return
 	
+	started_sliding.emit()
 	# Guardar la dirección de deslizamiento
 	sliding_dir = direction
 	
@@ -95,6 +105,7 @@ func handle_slide_movement():
 	pass
 
 func stop_sliding():
+	stopped_sliding.emit()
 	if lane == -2: 
 		lane = -1
 	else: 
@@ -105,3 +116,4 @@ func stop_sliding():
 
 func _on_jump_timer_timeout() -> void:
 	player.position -= Vector3(0, 2.5, 0)
+	is_jumping = false

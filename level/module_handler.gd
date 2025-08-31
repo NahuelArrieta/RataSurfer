@@ -3,10 +3,25 @@ extends Node3D
 const MODULE_1 = preload("res://Level/module_1.tscn")
 const MODULE_2 = preload("res://level/module_2.tscn")
 const MODULE_3 = preload("res://level/module_3.tscn")
+const MODULE_4 = preload("res://level/module_4.tscn")
+const MODULE_5 = preload("res://level/module_5.tscn")
+const MODULE_6 = preload("res://level/module_6.tscn")
+const MODULE_7 = preload("res://level/module_7.tscn")
+const MODULE_8 = preload("res://level/module_8.tscn")
+const MODULE_9 = preload("res://level/module_9.tscn")
+const MODULE_10 = preload("res://level/module_10.tscn")
+const MODULE_11 = preload("res://level/module_11.tscn")
+const MODULE_12 = preload("res://level/module_12.tscn")
+const MODULE_13 = preload("res://level/module_13.tscn")
+const MODULE_14 = preload("res://level/module_14.tscn")
+const MODULE_15 = preload("res://level/module_15.tscn")
+const MODULE_16 = preload("res://level/module_16.tscn")
+const MODULE_17 = preload("res://level/module_17.tscn")
 
 const MODULE_DEPTH := 30.8
 
-var module_array := [MODULE_1, MODULE_2, MODULE_3]
+var module_array := [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6,
+	MODULE_7, MODULE_8, MODULE_9, MODULE_10, MODULE_11, MODULE_12, MODULE_13, MODULE_14, MODULE_15, MODULE_16]
 var marker : Marker3D
 
 

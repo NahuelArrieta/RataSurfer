@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://di3osoek2hkg6"]
+
+[ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_h20th"]
+[ext_resource type="PackedScene" uid="uid://trccnht6h852" path="res://art/object3D/ModuloSimple.001.glb" id="2_qbe5e"]
+[ext_resource type="PackedScene" uid="uid://b2xu7a4ock7g5" path="res://art/object3D/deco/Bush.001.glb" id="3_qbe5e"]
+[ext_resource type="PackedScene" uid="uid://cblubojj87bhs" path="res://art/object3D/deco/Arbol.004.glb" id="4_djg3n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0js0f"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awed4"]
+size = Vector3(2, 2, 2)
+
+[node name="Module1" instance=ExtResource("1_h20th")]
+
+[node name="Timer" parent="." index="0"]
+wait_time = 3.0
+
+[node name="ModuloSimple_001" parent="." index="1" instance=ExtResource("2_qbe5e")]
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.201)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
+mesh = SubResource("BoxMesh_0js0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+shape = SubResource("BoxShape3D_awed4")
+
+[node name="Bush_0012" parent="." index="3" instance=ExtResource("3_qbe5e")]
+transform = Transform3D(-0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, -0.0276251, -18.8385, 5.74915, -19.5116)
+
+[node name="Arbol_004" parent="." index="4" instance=ExtResource("4_djg3n")]
+transform = Transform3D(0.927269, 0, -0.374396, 0, 1, 0, 0.374396, 0, 0.927269, 25.3518, 13.5873, -20.2314)
+
+[node name="Arbol_005" parent="." index="5" instance=ExtResource("4_djg3n")]
+transform = Transform3D(0.887172, 0, 0.461439, 0, 1, 0, -0.461439, 0, 0.887172, -28.8666, 13.5873, -13.6885)

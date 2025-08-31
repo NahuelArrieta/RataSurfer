@@ -81,7 +81,7 @@ func _on_restart_pressed() -> void:
 	get_tree().paused = false
 
 	if ResourceLoader.exists(LEVEL_PATH):
-		get_tree().change_scene_to_file(LEVEL_PATH)
+		get_tree().reload_current_scene()
 	else:
 		push_error("No se encontró la escena de nivel en: %s" % LEVEL_PATH)
 
