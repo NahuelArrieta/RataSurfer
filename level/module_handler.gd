@@ -3,10 +3,13 @@ extends Node3D
 const MODULE_1 = preload("res://Level/module_1.tscn")
 const MODULE_2 = preload("res://level/module_2.tscn")
 const MODULE_3 = preload("res://level/module_3.tscn")
+const MODULE_4 = preload("res://level/module_4.tscn")
+const MODULE_5 = preload("res://level/module_5.tscn")
+const MODULE_6 = preload("res://level/module_6.tscn")
 
 const MODULE_DEPTH := 30.8
 
-var module_array := [MODULE_1, MODULE_2, MODULE_3]
+var module_array := [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5, MODULE_6]
 var marker : Marker3D
 
 
