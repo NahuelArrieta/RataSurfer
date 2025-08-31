@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://caa612nngg7y4" path="res://ui/score_ui.tscn" id="3_0x9y8"]
 [ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
+[ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -165,9 +166,6 @@ shader_parameter/uv1_offset = Vector3(0.04, 0.04, 0.04)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vkbyq"]
-size = Vector3(43.5644, 20.37, 19.645)
-
 [node name="Level" type="Node3D"]
 script = ExtResource("4_2x0y9")
 
@@ -202,13 +200,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
-[node name="SlideArea3D" type="Area3D" parent="."]
-collision_layer = 128
-collision_mask = 128
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SlideArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755795, 0, 0)
-shape = SubResource("BoxShape3D_vkbyq")
-debug_color = Color(0.993923, 0.0715761, 3.85046e-07, 0.42)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ktfr2")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
