@@ -2,10 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_sk7ld"]
 [ext_resource type="PackedScene" uid="uid://cthiktf3nq7kb" path="res://art/object3D/Modulo.002 (1).glb" id="2_sk7ld"]
-[ext_resource type="PackedScene" uid="uid://dntgph4xlgjou" path="res://obstacles/obstacle.tscn" id="3_u6sgr"]
+[ext_resource type="PackedScene" uid="uid://dh2wudnn66tiq" path="res://obstacles/cubeObstacle.tscn" id="3_u6sgr"]
 
 [node name="Module2" instance=ExtResource("1_sk7ld")]
 
 [node name="Modulo_002 (1)" parent="." index="0" instance=ExtResource("2_sk7ld")]
 
-[node name="Obstacle" parent="." index="2" instance=ExtResource("3_u6sgr")]
+[node name="CubeObstacle" parent="." index="2" instance=ExtResource("3_u6sgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32363, 0, -4.16147)
+
+[node name="CubeObstacle2" parent="." index="3" instance=ExtResource("3_u6sgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66435, 0, -3.11604)
+
+[node name="CubeObstacle3" parent="." index="4" instance=ExtResource("3_u6sgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186693, 0, -22.1708)
+
+[node name="CubeObstacle4" parent="." index="5" instance=ExtResource("3_u6sgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186693, 2.67027, -22.1708)
