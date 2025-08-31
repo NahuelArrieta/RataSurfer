@@ -1,16 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckrm365v6hkft"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_fw8sk"]
-[ext_resource type="PackedScene" uid="uid://dd1h6kqilxolf" path="res://art/object3D/Modulo.003 (1).glb" id="2_fw8sk"]
+[ext_resource type="PackedScene" uid="uid://751buaa12h1i" path="res://art/object3D/ModuloPipeline.001.glb" id="2_fw8sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw8sk"]
 size = Vector3(2.5042, 7.88, 31.986)
 
 [node name="EnvironmentModule" instance=ExtResource("1_fw8sk")]
 
-[node name="Modulo_003 (1)" parent="." index="0" instance=ExtResource("2_fw8sk")]
-
-[node name="Area3D" type="Area3D" parent="." index="2"]
+[node name="Area3D" type="Area3D" parent="." index="1"]
 collision_layer = 128
 collision_mask = 128
 
@@ -18,3 +16,5 @@ collision_mask = 128
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -13.358)
 shape = SubResource("BoxShape3D_fw8sk")
 debug_color = Color(0.996594, 0, 0.183643, 0.42)
+
+[node name="ModuloPipeline_001" parent="." index="2" instance=ExtResource("2_fw8sk")]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ScoreManager="*res://ui/score_manager.tscn"
 Global="*res://global.gd"
+Settings="*res://Settings/Settings.gd"
 
 [display]
 

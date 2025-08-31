@@ -1,6 +1,10 @@
 extends Node
 
+signal started_sliding
+signal stopped_sliding
 signal player_jumped
+signal moved_right
+signal moved_left
 
 @onready var player: CharacterBody3D = $".."
 @onready var right_ray: RayCast3D = $"../RightRay"
@@ -9,12 +13,16 @@ signal player_jumped
 
 @export var lane_size := 5
 
+var is_jumping := false
+
 func _ready() -> void:
 	# Move the rays to the sides
 	right_ray.set_target_position(Vector3(lane_size, 0, 0))
 	left_ray.set_target_position(Vector3(-lane_size, 0, 0))
 	
 var lane := 0
+# Variable para guardar la dirección de deslizamiento
+var sliding_dir: int = 0  # -1 izquierda, 1 derecha
 
 func is_sliding() -> bool:
 	return abs(lane) == 2
@@ -29,15 +37,17 @@ func _physics_process(delta: float) -> void:
 	else: 
 		handle_lane_movement()
 
-
 func handle_lane_movement():
 	if Input.is_action_just_pressed("left"):
 		handle_x_movement(-1)
+		moved_left.emit()
 		
 	elif Input.is_action_just_pressed("right"):
 		handle_x_movement(1)
+		moved_right.emit()
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not is_jumping:
+		is_jumping = true
 		player_jumped.emit()
 		player.position += Vector3(0, 2.5, 0)
 		jump_timer.start()
@@ -55,6 +65,11 @@ func handle_x_movement(direction):
 func start_sliding(direction):
 	if !can_slide(direction):
 		return
+	
+	started_sliding.emit()
+	# Guardar la dirección de deslizamiento
+	sliding_dir = direction
+	
 	lane += 1 * direction
 
 	if lane == -2:
@@ -72,10 +87,25 @@ func can_slide(direction) -> bool:
 	
 	return rayCast.is_colliding()
 
+# Función para verificar si la tubería ha terminado
+func check_pipe_end() -> bool:
+	if not is_sliding():
+		return false
+	
+	var rayCast: RayCast3D
+	if sliding_dir > 0:
+		rayCast = right_ray
+	else:
+		rayCast = left_ray
+	
+	# Si ya no hay colisión, la tubería ha terminado
+	return not rayCast.is_colliding()
+
 func handle_slide_movement():
 	pass
 
 func stop_sliding():
+	stopped_sliding.emit()
 	if lane == -2: 
 		lane = -1
 	else: 
@@ -86,3 +116,4 @@ func stop_sliding():
 
 func _on_jump_timer_timeout() -> void:
 	player.position -= Vector3(0, 2.5, 0)
+	is_jumping = false

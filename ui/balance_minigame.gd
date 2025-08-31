@@ -8,7 +8,6 @@ signal fail
 @onready var main_bar: ColorRect = $MainBar
 @onready var active_zone: Control = $MainBar/ActiveZone
 @onready var icon: Control = $MainBar/Icon
-@onready var balance_bar: ProgressBar = $BalanceBar
 
 # Parámetros configurables
 @export var bar_width: int = 400
@@ -60,15 +59,10 @@ func setup_ui():
 	icon_position = bar_width / 2  # Centrar inicialmente
 	update_icon_position()
 	
-	# Barra de equilibrio
-	balance_bar.max_value = time_required
-	balance_bar.value = 0
-
 func start_minigame():
 	is_active = true
 	time_on_icon = 0.0
 	time_outside_zone = 0.0
-	balance_bar.value = 0
 	space_pressed = false
 	was_in_zone = false
 	
@@ -103,7 +97,6 @@ func _process(delta):
 	
 	update_zone_position()
 	update_icon_position()
-	check_balance(delta)
 
 func move_icon_randomly(delta):
 	# Mover ícono
@@ -135,17 +128,15 @@ func check_balance(delta):
 		# Zona activa sobre el ícono
 		time_on_icon += delta
 		# NO resetear time_outside_zone - se mantiene acumulativo
-		balance_bar.value = time_on_icon		
 		if time_on_icon >= time_required:
 			on_success()
 	else:
 		# Zona activa fuera del ícono
 		time_outside_zone += delta
 		# NO resetear time_on_icon - se mantiene acumulativo
-		balance_bar.value = time_on_icon  # Mantener el progreso visual		
 		if time_outside_zone >= time_to_fail:
 			on_fail()
-
+			
 func on_success():
 	is_active = false
 	success.emit()
@@ -155,6 +146,15 @@ func on_fail():
 	is_active = false
 	fail.emit()
 	hide()
+
+# Métodos públicos para forzar el resultado del minijuego
+func force_fail():
+	if is_active:
+		on_fail()
+
+func force_success():
+	if is_active:
+		on_success()
 
 # Funciones públicas para configuración externa
 func set_parameters(new_bar_width: int, new_zone_speed: float, new_zone_width: float):
