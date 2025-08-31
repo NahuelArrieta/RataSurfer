@@ -1,8 +1,12 @@
 extends Node
 
+signal player_jumped
+
 @onready var player: CharacterBody3D = $".."
 @onready var right_ray: RayCast3D = $"../RightRay"
 @onready var left_ray: RayCast3D = $"../LeftRay"
+@onready var jump_timer: Timer = $JumpTimer
+
 @export var lane_size := 5
 
 
@@ -11,14 +15,13 @@ func _ready() -> void:
 	right_ray.set_target_position(Vector3(lane_size, 0, 0))
 	left_ray.set_target_position(Vector3(-lane_size, 0, 0))
 	
-var lane := -1
+var lane := 0
 
 func is_sliding() -> bool:
 	return abs(lane) == 2
 		
 
 func _physics_process(delta: float) -> void:
-
 	if is_sliding():
 		handle_slide_movement()
 	else: 
@@ -31,6 +34,11 @@ func handle_lane_movement():
 		
 	elif Input.is_action_just_pressed("right"):
 		handle_x_movement(1)
+	
+	if Input.is_action_just_pressed("jump"):
+		player_jumped.emit()
+		player.position += Vector3(0, 2.5, 0)
+		jump_timer.start()
 
 
 func handle_x_movement(direction): 
@@ -59,12 +67,10 @@ func can_slide(direction) -> bool:
 		rayCast = left_ray
 	
 	return rayCast.is_colliding()
-		
 
 func handle_slide_movement():
-	if Input.is_action_just_pressed("down"):
-		stop_sliding()
-		
+	pass
+
 func stop_sliding():
 	if lane == -2: 
 		lane = -1
@@ -73,3 +79,7 @@ func stop_sliding():
 		lane = 1
 		player.position.x -= lane_size
 	player.position.y = 0
+
+
+func _on_jump_timer_timeout() -> void:
+	player.position -= Vector3(0, 2.5, 0)

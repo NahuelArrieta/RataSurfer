@@ -46,6 +46,5 @@ func _on_timer_timeout() -> void:
 			module.queue_free()
 	
 	
-	print(removed)
 	if removed > 0:
 		_spawn_modules(removed)
