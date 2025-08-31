@@ -18,7 +18,6 @@ func is_sliding() -> bool:
 		
 
 func _physics_process(delta: float) -> void:
-
 	if is_sliding():
 		handle_slide_movement()
 	else: 
@@ -59,12 +58,10 @@ func can_slide(direction) -> bool:
 		rayCast = left_ray
 	
 	return rayCast.is_colliding()
-		
 
 func handle_slide_movement():
-	if Input.is_action_just_pressed("down"):
-		stop_sliding()
-		
+	pass
+
 func stop_sliding():
 	if lane == -2: 
 		lane = -1
