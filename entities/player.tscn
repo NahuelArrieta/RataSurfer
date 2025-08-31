@@ -1,10 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://5ylubghgfke4"]
+[gd_scene load_steps=44 format=3 uid="uid://5ylubghgfke4"]
 
 [ext_resource type="Texture2D" uid="uid://gj7oli6ijf64" path="res://art/sprites/PowerVino.png" id="1_b0kkn"]
 [ext_resource type="Script" uid="uid://n3cq2i6dore5" path="res://entities/movement_handler.gd" id="2_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://chnbgr0gnfrxh" path="res://art/sprites/Saltar.png" id="2_e4p34"]
 [ext_resource type="Texture2D" uid="uid://c5h86th5ujfhf" path="res://art/sprites/RataTruco.png" id="3_qly61"]
 [ext_resource type="Script" uid="uid://b1qv4lsclr54t" path="res://entities/animation_player.gd" id="4_rfe5m"]
+[ext_resource type="Script" uid="uid://d03r1kum0opcx" path="res://entities/audio_player.gd" id="6_i623q"]
+[ext_resource type="AudioStream" uid="uid://bt3n5wuvocj6i" path="res://sound/rata_sfx/Salto1.ogg" id="7_ef06p"]
+[ext_resource type="AudioStream" uid="uid://b68kwnp56smcc" path="res://sound/rata_sfx/Salto2.ogg" id="8_tjdhl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfe5m"]
 atlas = ExtResource("1_b0kkn")
@@ -286,6 +289,12 @@ _data = {
 &"slide": SubResource("Animation_d2i2q")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x08pd"]
+random_pitch = 1.5
+streams_count = 2
+stream_0/stream = ExtResource("7_ef06p")
+stream_1/stream = ExtResource("8_tjdhl")
+
 [node name="Player" type="CharacterBody3D"]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -324,6 +333,14 @@ libraries = {
 autoplay = "idle"
 script = ExtResource("4_rfe5m")
 
+[node name="AudioPlayer" type="Node" parent="."]
+script = ExtResource("6_i623q")
+
+[node name="SaltoAudioPlayer" type="AudioStreamPlayer3D" parent="AudioPlayer"]
+stream = SubResource("AudioStreamRandomizer_x08pd")
+pitch_scale = 1.5
+
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]
+[connection signal="player_jumped" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_player_jumped"]
 [connection signal="timeout" from="MovementHandler/JumpTimer" to="MovementHandler" method="_on_jump_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
