@@ -1,11 +1,11 @@
 extends Control
 
 # ------------------ CONSTANTES ------------------
-const LEVEL_PATH := "res://level/level.tscn"   			# Ruta de la escena de nivel
-const OPTIONS_PATH := "res://ui/OptionsMenu.tscn"      	# Ruta de la escena de opciones
-const HOVER_SCALE := Vector2(1.1, 1.1)         			# Escala al hacer hover
-const NORMAL_SCALE := Vector2(1.0, 1.0)        			# Escala normal
-const BTN_ANIM_TIME := 0.18                    			# Duración hover animación
+const LEVEL_PATH := "res://level/level.tscn"
+const OPTIONS_PATH := "res://ui/OptionsMenu.tscn"
+const HOVER_SCALE := Vector2(1.1, 1.1)
+const NORMAL_SCALE := Vector2(1.0, 1.0)
+const BTN_ANIM_TIME := 0.18
 const ENTRY_FADE_TIME := 0.25
 const ENTRY_SCALE_TIME := 0.55
 const EXIT_SCALE_TIME := 0.45
@@ -16,12 +16,19 @@ const EXIT_FADE_TIME := 0.30
 @onready var title_label: Label = $"CenterContainer/VBoxContainer/Label"
 @onready var start_button: Button = $"CenterContainer/VBoxContainer/Button"
 @onready var options_button: Button = $"CenterContainer/VBoxContainer/Button2"
+@onready var menu_player: AudioStreamPlayer = $"MenuPlayer"
 
 func _ready() -> void:
-	# Esperamos un frame para asegurarnos de que los nodos ya tienen tamaño real
+	# 🔊 Cargar y aplicar settings
+	Settings.load_settings()
+	if menu_player:
+		menu_player.volume_db = linear_to_db(Settings.menu_volume)
+		print("🎶 MenuPlayer volumen aplicado:", menu_player.volume_db)
+
+	# Esperamos un frame para asegurar tamaños
 	await get_tree().process_frame
 	
-	# Establecemos los pivotes en el centro
+	# Establecemos pivotes
 	center_container.pivot_offset = center_container.size * 0.5
 	start_button.pivot_offset = start_button.size * 0.5
 	options_button.pivot_offset = options_button.size * 0.5
@@ -35,31 +42,27 @@ func _ready() -> void:
 	# Animación inicial
 	_play_entry_animation()
 
-
 # ------------------ ANIMACIÓN DE ENTRADA ------------------
 func _play_entry_animation() -> void:
 	center_container.scale = Vector2(0.01, 0.01)
 	center_container.modulate.a = 0.0
 
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).bind_node(center_container)
-
 	t.tween_property(center_container, "modulate:a", 1.0, ENTRY_FADE_TIME)
 	t.tween_property(center_container, "scale", NORMAL_SCALE, ENTRY_SCALE_TIME)
 	t.tween_property(center_container, "scale", NORMAL_SCALE * 1.03, 0.08)
 	t.tween_property(center_container, "scale", NORMAL_SCALE, 0.08)
 
+# ------------------ EFECTO DE HOVER ------------------
+func _on_button_hover(btn: Button = start_button) -> void:
+	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
+	t.tween_property(btn, "scale", HOVER_SCALE, BTN_ANIM_TIME)
+	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-# ------------------ EFECTO DE HOVER DEL BOTÓN ------------------
-func _on_button_hover() -> void:
-	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(start_button)
-	t.tween_property(start_button, "scale", HOVER_SCALE, BTN_ANIM_TIME)
-	t.parallel().tween_property(start_button, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
-
-func _on_button_exit() -> void:
-	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(start_button)
-	t.tween_property(start_button, "scale", NORMAL_SCALE, BTN_ANIM_TIME)
-	t.parallel().tween_property(start_button, "modulate", Color.WHITE, BTN_ANIM_TIME)
-
+func _on_button_exit(btn: Button = start_button) -> void:
+	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
+	t.tween_property(btn, "scale", NORMAL_SCALE, BTN_ANIM_TIME)
+	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)
 
 # ------------------ HANDLERS ------------------
 func _on_start_pressed() -> void:
@@ -67,7 +70,6 @@ func _on_start_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	await _play_exit_and_change(OPTIONS_PATH)
-
 
 # ------------------ UTILS ------------------
 func _play_exit_and_change(path: String) -> void:

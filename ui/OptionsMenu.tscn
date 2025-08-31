@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bunealm3ly3bs" path="res://ui/OptionesMenu.gd" id="1_q2aw3"]
 [ext_resource type="Texture2D" uid="uid://tpl4kgy6hf4f" path="res://art/png/panel4.png" id="2_panel4"]
 
-[node name="Control" type="Control"]
+[node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +75,17 @@ horizontal_alignment = 1
 layout_mode = 2
 value = 80.0
 
+[node name="MenuLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.8, 1)
+theme_override_font_sizes/font_size = 28
+text = "MUSIC INICIO"
+horizontal_alignment = 1
+
+[node name="MenuSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+value = 80.0
+
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 60)
 layout_mode = 2
@@ -84,4 +95,5 @@ text = "VOLVER"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/MenuSlider" to="." method="_on_menu_slider_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxdenpiakhh3f" path="res://art/png/panel1.png" id="2_panel1"]
 [ext_resource type="AudioStream" uid="uid://iwalpmekjdd4" path="res://sound/MEGAJAM INVIERNO RATTTTTTTTTTTTTTTTTTT.mp3" id="3_g1ph5"]
 
-[node name="Control2" type="Control"]
+[node name="StartMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,9 +68,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "OPCIONES"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MenuPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_g1ph5")
-volume_db = 10.0
 autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_start_pressed"]
