@@ -9,7 +9,6 @@ signal player_jumped
 
 @export var lane_size := 5
 
-
 func _ready() -> void:
 	# Move the rays to the sides
 	right_ray.set_target_position(Vector3(lane_size, 0, 0))
@@ -19,8 +18,11 @@ var lane := 0
 
 func is_sliding() -> bool:
 	return abs(lane) == 2
-		
 
+func _snap_player_to_lane() -> void:
+	# No sumes, seteá en función del lane (determinístico)
+	player.position.x = lane * lane_size
+	
 func _physics_process(delta: float) -> void:
 	if is_sliding():
 		handle_slide_movement()
@@ -46,16 +48,20 @@ func handle_x_movement(direction):
 	if new_lane < -1 or new_lane > 1:
 		start_sliding(direction)
 		return
-	player.position.x += lane_size * direction
 	lane = new_lane
+	_snap_player_to_lane()
 
 
 func start_sliding(direction):
 	if !can_slide(direction):
 		return
-	player.position.x += lane_size * direction
-	player.position.y = lane_size ##TODO
 	lane += 1 * direction
+
+	if lane == -2:
+		player.position.x = -7
+	elif lane == 2:
+		player.position.x = 7
+	player.position.y = 1.5
 	
 func can_slide(direction) -> bool:
 	var rayCast: RayCast3D
@@ -72,11 +78,10 @@ func handle_slide_movement():
 func stop_sliding():
 	if lane == -2: 
 		lane = -1
-		player.position.x += lane_size
 	else: 
 		lane = 1
-		player.position.x -= lane_size
-	player.position.y = 0
+	player.position.y -= 1.5
+	_snap_player_to_lane()
 
 
 func _on_jump_timer_timeout() -> void:
