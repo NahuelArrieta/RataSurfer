@@ -39,7 +39,8 @@ func _ready() -> void:
 
 # ------------------ INPUT ------------------
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("escape"):
+		print(">>> Escape detectado <<<")
 		_toggle_pause()
 
 
