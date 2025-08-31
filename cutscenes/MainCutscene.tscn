@@ -13,6 +13,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_k8cdg")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -1137.0
+offset_right = 540.0
+offset_bottom = 1137.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rgm5k")
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -44,16 +57,3 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 128
 text = "Comenzar"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -540.0
-offset_top = -1137.0
-offset_right = 540.0
-offset_bottom = 1137.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_rgm5k")
