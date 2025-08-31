@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=18 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
-[ext_resource type="PackedScene" path="res://ui/score_ui.tscn" id="3_0x9y8"]
+[ext_resource type="PackedScene" uid="uid://caa612nngg7y4" path="res://ui/score_ui.tscn" id="3_0x9y8"]
 [ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
 [ext_resource type="PackedScene" uid="uid://6cgm08dnlml" path="res://ui/PauseMenu.tscn" id="5_ivpvi"]
 [ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
-[ext_resource type="AudioStream" uid="uid://dwurvomnktoeg" path="res://sound/AMBTown_Town Square 02_Jake Fielding_Sounds of Spain.wav" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://ctdhwbyphuct5" path="res://ui/GameOver.tscn" id="6_0v1st"]
+[ext_resource type="AudioStream" uid="uid://dwurvomnktoeg" path="res://sound/AMBTown_Town Square 02_Jake Fielding_Sounds of Spain.wav" id="6_44x8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
