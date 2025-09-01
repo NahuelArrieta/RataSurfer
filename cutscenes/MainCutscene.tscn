@@ -1,27 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://blbbmwwsrmiew"]
+[gd_scene load_steps=4 format=3 uid="uid://blbbmwwsrmiew"]
 
-[ext_resource type="VideoStream" uid="uid://bq0ulwdgr130r" path="res://cutscenes/espera espera, miniatura xD.ogv" id="1_ulda0"]
 [ext_resource type="Script" uid="uid://vh5fomwf11nw" path="res://cutscenes/main_cutscene.gd" id="2_k8cdg"]
+[ext_resource type="VideoStream" uid="uid://yytgwtkpj6yo" path="res://cutscenes/EN OGV.ogv" id="3_8cfd6"]
+[ext_resource type="Texture2D" uid="uid://bxdenpiakhh3f" path="res://art/png/PauseMenu.png" id="3_rgm5k"]
 
-[node name="MainCutscene" type="Node2D"]
-
-[node name="Control" type="Control" parent="."]
+[node name="MainCutscene" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_k8cdg")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-stream = ExtResource("1_ulda0")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -1137.0
+offset_right = 540.0
+offset_bottom = 1137.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rgm5k")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_8cfd6")
 autoplay = true
 
-[node name="StartButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 759.0
-offset_top = 433.0
-offset_right = 814.0
-offset_bottom = 459.0
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -71.5
+offset_right = 304.5
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "Comenzar"

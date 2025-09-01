@@ -1,13 +1,30 @@
-[gd_scene load_steps=18 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=35 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://caa612nngg7y4" path="res://ui/score_ui.tscn" id="3_0x9y8"]
 [ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
+[ext_resource type="PackedScene" uid="uid://dmj5ng1b4awrq" path="res://level/module_1.tscn" id="4_kdsbj"]
 [ext_resource type="PackedScene" uid="uid://6cgm08dnlml" path="res://ui/PauseMenu.tscn" id="5_ivpvi"]
 [ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://b2d0kl0fx30o1" path="res://level/module_2.tscn" id="5_ml0fe"]
 [ext_resource type="PackedScene" uid="uid://ctdhwbyphuct5" path="res://ui/GameOver.tscn" id="6_0v1st"]
 [ext_resource type="AudioStream" uid="uid://dwurvomnktoeg" path="res://sound/AMBTown_Town Square 02_Jake Fielding_Sounds of Spain.wav" id="6_44x8d"]
+[ext_resource type="PackedScene" uid="uid://ckrm365v6hkft" path="res://level/module_3.tscn" id="6_h74y2"]
+[ext_resource type="PackedScene" uid="uid://0eugt6t81e8f" path="res://level/module_4.tscn" id="7_7cdnq"]
+[ext_resource type="PackedScene" uid="uid://cjbe358oa6gcy" path="res://level/module_5.tscn" id="8_lsj08"]
+[ext_resource type="PackedScene" uid="uid://dnk7x4c43c2l7" path="res://level/module_6.tscn" id="9_u5n7q"]
+[ext_resource type="PackedScene" uid="uid://dox0vvvay4ei4" path="res://level/module_7.tscn" id="10_qslh7"]
+[ext_resource type="PackedScene" uid="uid://ij1j77jjh4oy" path="res://level/module_8.tscn" id="11_kdj2k"]
+[ext_resource type="PackedScene" uid="uid://c5gtu7p42v4ps" path="res://level/module_9.tscn" id="12_s1aav"]
+[ext_resource type="PackedScene" uid="uid://cybeg7bu3onhj" path="res://level/module_10.tscn" id="13_xdahv"]
+[ext_resource type="PackedScene" uid="uid://di3osoek2hkg6" path="res://level/module_11.tscn" id="14_krw8e"]
+[ext_resource type="PackedScene" uid="uid://bc6qk45xxr438" path="res://level/module_12.tscn" id="15_ifo17"]
+[ext_resource type="PackedScene" uid="uid://buh0kq0m7slux" path="res://level/module_13.tscn" id="16_q4dhf"]
+[ext_resource type="PackedScene" uid="uid://dw512ws5ff3nk" path="res://level/module_14.tscn" id="17_u1dsc"]
+[ext_resource type="PackedScene" uid="uid://bhx06g8dapsxt" path="res://level/module_15.tscn" id="18_8yb03"]
+[ext_resource type="PackedScene" uid="uid://c5m0luwwp8t5s" path="res://level/module_16.tscn" id="19_1vdk1"]
+[ext_resource type="PackedScene" uid="uid://ci1erp0qn0g44" path="res://level/module_17.tscn" id="20_3dv6e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -187,6 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38588, 6.373)
 
 [node name="ModuleHandler" type="Node3D" parent="."]
 script = ExtResource("2_5gx2l")
+modules = Array[PackedScene]([ExtResource("4_kdsbj"), ExtResource("5_ml0fe"), ExtResource("6_h74y2"), ExtResource("7_7cdnq"), ExtResource("8_lsj08"), ExtResource("9_u5n7q"), ExtResource("10_qslh7"), ExtResource("11_kdj2k"), ExtResource("12_s1aav"), ExtResource("13_xdahv"), ExtResource("14_krw8e"), ExtResource("15_ifo17"), ExtResource("16_q4dhf"), ExtResource("17_u1dsc"), ExtResource("18_8yb03"), ExtResource("19_1vdk1"), ExtResource("20_3dv6e")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

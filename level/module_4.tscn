@@ -3,14 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_kgw76"]
 [ext_resource type="PackedScene" uid="uid://blwf7cchy4f5n" path="res://art/object3D/ModuloPipeline.002.glb" id="2_al8bq"]
 [ext_resource type="PackedScene" uid="uid://dbnwttvf3aoxu" path="res://art/object3D/deco/Arbol.003.glb" id="3_al8bq"]
+[ext_resource type="PackedScene" uid="uid://ckiwqg4mu8uwq" path="res://art/object3D/ProppsColicion/Botella.001.glb" id="3_tcxfb"]
 [ext_resource type="PackedScene" uid="uid://c5igbklrobvc1" path="res://art/object3D/deco/Arbol.001.glb" id="4_2x7mc"]
 [ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="5_5dmb4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgw76"]
 size = Vector3(3.52597, 9.48254, 30.1692)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kgw76"]
-size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_al8bq"]
 size = Vector3(2, 2, 2)
@@ -30,11 +28,10 @@ shape = SubResource("BoxShape3D_kgw76")
 [node name="Area3D" type="Area3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -14.7834)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" index="0"]
-mesh = SubResource("BoxMesh_kgw76")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("BoxShape3D_al8bq")
+
+[node name="Botella_0012" parent="Area3D" index="1" instance=ExtResource("3_tcxfb")]
 
 [node name="Arbol_0032" parent="." index="4" instance=ExtResource("3_al8bq")]
 transform = Transform3D(0.895028, 0, 0.44601, 0, 1, 0, -0.44601, 0, 0.895028, 23.9158, 0, -24.9091)
