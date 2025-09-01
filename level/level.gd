@@ -19,13 +19,7 @@ func _ready():
 	
 	# 🔊 Aplicar configuración de audio guardada
 	Settings.load_settings()
-	var music_player = get_node_or_null("MusicPlayer")
-	var sfx_player = get_node_or_null("AudioStreamPlayer")
-
-	if music_player:
-		music_player.volume_db = linear_to_db(Settings.music_volume)
-	if sfx_player:
-		sfx_player.volume_db = linear_to_db(Settings.sfx_volume)
+	Settings.apply_volumes()
 
 
 func _input(event):

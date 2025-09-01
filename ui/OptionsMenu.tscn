@@ -58,40 +58,27 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.8, 1)
 theme_override_font_sizes/font_size = 32
-text = "MUSIC PLAYER"
+text = "volumen musica"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 80.0
+value = 50.0
 
 [node name="SfxLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.8, 1)
 theme_override_font_sizes/font_size = 32
-text = "AUDIO STREAM"
+text = "Volumen sfx"
 horizontal_alignment = 1
 
 [node name="SfxSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 80.0
-
-[node name="MenuLabel" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.8, 1)
-theme_override_font_sizes/font_size = 32
-text = "MUSIC INICIO"
-horizontal_alignment = 1
-
-[node name="MenuSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-value = 80.0
+value = 50.0
 
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
@@ -103,5 +90,4 @@ text = "VOLVER"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_changed"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/MenuSlider" to="." method="_on_menu_slider_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

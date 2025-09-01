@@ -228,13 +228,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_kdsbj")
-volume_db = -12.0
-autoplay = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_44x8d")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
+
+[node name="BGAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_44x8d")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]

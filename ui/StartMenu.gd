@@ -22,9 +22,8 @@ const EXIT_FADE_TIME := 0.30
 func _ready() -> void:
 	# 🔊 Cargar y aplicar settings
 	Settings.load_settings()
-	if menu_player:
-		menu_player.volume_db = linear_to_db(Settings.menu_volume)
-		print("🎶 MenuPlayer volumen aplicado:", menu_player.volume_db)
+	print(Settings.music_volume)
+	Settings.apply_volumes()
 
 	# Ajustar margen superior para bajar el bloque (título + botones)
 	margin.add_theme_constant_override("margin_top", 220) # 🔽 bajá este valor para más espacio

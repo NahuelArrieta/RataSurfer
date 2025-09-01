@@ -83,7 +83,9 @@ size_flags_vertical = 4
 
 [node name="MenuPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_g1ph5")
+volume_db = 10.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/Button2" to="." method="_on_options_pressed"]

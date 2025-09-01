@@ -27,5 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("3_8cfd6")
 autoplay = true
+bus = &"SFX"
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

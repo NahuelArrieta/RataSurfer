@@ -6,7 +6,6 @@ const START_MENU_PATH := "res://ui/StartMenu.tscn"
 # ------------------ NODOS ------------------
 @onready var music_slider: HSlider = $"CenterContainer/VBoxContainer/MusicSlider"
 @onready var sfx_slider: HSlider   = $"CenterContainer/VBoxContainer/SfxSlider"
-@onready var menu_slider: HSlider  = $"CenterContainer/VBoxContainer/MenuSlider"
 @onready var back_button: Button   = $"CenterContainer/VBoxContainer/BackButton"
 
 func _ready() -> void:
@@ -16,12 +15,10 @@ func _ready() -> void:
 	print("=== INIT OPTIONS MENU ===")
 	print("Music:", Settings.music_volume)
 	print("SFX:", Settings.sfx_volume)
-	print("Menu:", Settings.menu_volume)
 
 	# Inicializar sliders con valores de Settings
 	music_slider.value = Settings.music_volume * 100
 	sfx_slider.value   = Settings.sfx_volume   * 100
-	menu_slider.value  = Settings.menu_volume  * 100
 
 	# Aplicar los volúmenes al cargar
 	Settings.apply_volumes()

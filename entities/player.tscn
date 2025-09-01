@@ -359,12 +359,17 @@ script = ExtResource("6_i623q")
 [node name="SaltoAudioPlayer" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 stream = SubResource("AudioStreamRandomizer_x08pd")
 pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="RightMvmAudioPlayer" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 stream = SubResource("AudioStreamRandomizer_dchgp")
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="LeftMvmAudioPlayer" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 stream = SubResource("AudioStreamRandomizer_kdgjc")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="GameoverArea3D" to="." method="_on_gameover_area_3d_area_entered"]
 [connection signal="moved_left" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_moved_left"]
