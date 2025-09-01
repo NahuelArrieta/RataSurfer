@@ -167,7 +167,7 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_qohg2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qohg2"]
-render_priority = 0
+render_priority = -1
 shader = SubResource("Shader_5gx2l")
 shader_parameter/albedo = Color(0.0470588, 0.317647, 0.545098, 0.584314)
 shader_parameter/albedo_texture_size = Vector2i(0, 0)

@@ -322,8 +322,6 @@ shape = SubResource("BoxShape3D_tjdhl")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 billboard = 1
-no_depth_test = true
-render_priority = 8
 sprite_frames = SubResource("SpriteFrames_fruft")
 frame = 8
 
