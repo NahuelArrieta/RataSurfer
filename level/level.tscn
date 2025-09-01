@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://tsm227vr6f0o" path="res://level/level.gd" id="4_2x0y9"]
 [ext_resource type="PackedScene" uid="uid://dmj5ng1b4awrq" path="res://level/module_1.tscn" id="4_kdsbj"]
 [ext_resource type="PackedScene" uid="uid://6cgm08dnlml" path="res://ui/PauseMenu.tscn" id="5_ivpvi"]
-[ext_resource type="AudioStream" uid="uid://bvnfmh8hh2xib" path="res://sound/1466635_Neurosis.mp3" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://b2d0kl0fx30o1" path="res://level/module_2.tscn" id="5_ml0fe"]
 [ext_resource type="PackedScene" uid="uid://ctdhwbyphuct5" path="res://ui/GameOver.tscn" id="6_0v1st"]
 [ext_resource type="AudioStream" uid="uid://dwurvomnktoeg" path="res://sound/AMBTown_Town Square 02_Jake Fielding_Sounds of Spain.wav" id="6_44x8d"]
@@ -25,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bhx06g8dapsxt" path="res://level/module_15.tscn" id="18_8yb03"]
 [ext_resource type="PackedScene" uid="uid://c5m0luwwp8t5s" path="res://level/module_16.tscn" id="19_1vdk1"]
 [ext_resource type="PackedScene" uid="uid://ci1erp0qn0g44" path="res://level/module_17.tscn" id="20_3dv6e"]
+[ext_resource type="AudioStream" uid="uid://buv6k2c7a4rb0" path="res://sound/BEAT ACEQUIA 20db ACT..mp3" id="24_kdsbj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -227,7 +227,7 @@ mesh = SubResource("BoxMesh_5gx2l")
 surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ktfr2")
+stream = ExtResource("24_kdsbj")
 volume_db = -12.0
 autoplay = true
 
