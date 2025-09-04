@@ -11,6 +11,7 @@ func _ready():
 	
 	# Buscar el score manager en el árbol de escena
 	score_manager = get_node_or_null("/root/ScoreManager")
+	ScoreManager.reset_score()
 	
 	if score_manager:
 		score_manager.score_updated.connect(_on_score_updated)
