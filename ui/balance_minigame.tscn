@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chg3wqd24b0eh"]
+[gd_scene load_steps=6 format=3 uid="uid://chg3wqd24b0eh"]
 
-[ext_resource type="Script" uid="uid://cgfxwx2x0tmx7" path="res://ui/balance_minigame.gd" id="1_3x4y5"]
+[ext_resource type="Script" uid="uid://dskbmdqy2aqyk" path="res://ui/balance_minigame2.gd" id="1_7oxwf"]
+[ext_resource type="Script" uid="uid://b7ta4xbw6ftma" path="res://ui/balance_minigame/controlled_zone.gd" id="2_jxmax"]
+[ext_resource type="Script" uid="uid://bh1dk8ni664ny" path="res://ui/balance_minigame/random_movement_zone.gd" id="3_bdkjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oxwf"]
+size = Vector2(156, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxmax"]
 
 [node name="BalanceMinigame" type="Control"]
 layout_mode = 3
@@ -15,7 +22,7 @@ offset_right = 250.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3x4y5")
+script = ExtResource("1_7oxwf")
 
 [node name="MainBar" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="ActiveZone" type="Control" parent="MainBar"]
+[node name="ControlledZone" type="Control" parent="MainBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,8 +52,10 @@ offset_right = 60.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(60, 15)
+script = ExtResource("2_jxmax")
 
-[node name="ActiveZoneBackground" type="ColorRect" parent="MainBar/ActiveZone"]
+[node name="ActiveZoneBackground" type="ColorRect" parent="MainBar/ControlledZone"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +64,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 0, 0.3)
 
-[node name="Icon" type="Control" parent="MainBar"]
+[node name="Area2D" type="Area2D" parent="MainBar/ControlledZone"]
+position = Vector2(60, 15)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBar/ControlledZone/Area2D"]
+shape = SubResource("RectangleShape2D_7oxwf")
+
+[node name="RandomMovementZone" type="Control" parent="MainBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,8 +85,9 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_bdkjo")
 
-[node name="IconVisual" type="ColorRect" parent="MainBar/Icon"]
+[node name="IconVisual" type="ColorRect" parent="MainBar/RandomMovementZone"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,3 +95,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="MainBar/RandomMovementZone"]
+position = Vector2(10, 10)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBar/RandomMovementZone/Area2D"]
+shape = SubResource("RectangleShape2D_jxmax")
+
+[node name="DirectionTimer" type="Timer" parent="MainBar/RandomMovementZone"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="area_entered" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="MainBar/RandomMovementZone/DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="MainBar/RandomMovementZone/DirectionTimer" to="MainBar/RandomMovementZone" method="_on_direction_timer_timeout"]

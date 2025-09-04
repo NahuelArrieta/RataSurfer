@@ -8,6 +8,7 @@ signal fail
 @onready var main_bar: ColorRect = $MainBar
 @onready var active_zone: Control = $MainBar/ActiveZone
 @onready var icon: Control = $MainBar/Icon
+@onready var character_body_2d: CharacterBody2D = $CharacterBody2D
 
 # Parámetros configurables
 @export var bar_width: int = 400

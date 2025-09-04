@@ -106,7 +106,7 @@ func handle_slide_movement():
 
 func stop_sliding():
 	stopped_sliding.emit()
-	if lane == -2: 
+	if lane == -2:
 		lane = -1
 	else: 
 		lane = 1
