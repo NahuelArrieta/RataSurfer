@@ -13,9 +13,9 @@ func _ready():
 		print("❌ ScoreManager NO encontrado en el nivel")
 	
 	# Agregar el gestor de eventos del minijuego de equilibrio
-	var balance_manager = preload("res://ui/balance_event_manager.gd").new()
-	add_child(balance_manager)
-	balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
+	#var balance_manager = preload("res://ui/balance_event_manager.gd").new()
+	#add_child(balance_manager)
+	#balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
 	
 	# 🔊 Aplicar configuración de audio guardada
 	Settings.load_settings()

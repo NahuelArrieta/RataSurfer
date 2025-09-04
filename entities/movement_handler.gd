@@ -32,11 +32,12 @@ func _snap_player_to_lane() -> void:
 	player.position.x = lane * lane_size
 	
 func _physics_process(delta: float) -> void:
-	if is_sliding():
-		handle_slide_movement()
-	else: 
+	if not is_sliding():
 		handle_lane_movement()
+	elif is_sliding() and check_pipe_end():
+		stop_sliding()
 
+## Takes left, right and jump input and executes it
 func handle_lane_movement():
 	if Input.is_action_just_pressed("left"):
 		handle_x_movement(-1)
@@ -52,7 +53,7 @@ func handle_lane_movement():
 		player.position += Vector3(0, 2.5, 0)
 		jump_timer.start()
 
-
+## Checks if it's sliding and snaps player to lane
 func handle_x_movement(direction): 
 	var new_lane: int = lane + 1 * direction
 	if new_lane < -1 or new_lane > 1:
@@ -61,23 +62,21 @@ func handle_x_movement(direction):
 	lane = new_lane
 	_snap_player_to_lane()
 
-
+## Changes player pos and lane
 func start_sliding(direction):
 	if !can_slide(direction):
 		return
 	
 	started_sliding.emit()
-	# Guardar la dirección de deslizamiento
+	# Guardar la dirección de deslizamiento (1 o -1)
 	sliding_dir = direction
 	
 	lane += 1 * direction
-
-	if lane == -2:
-		player.position.x = -7
-	elif lane == 2:
-		player.position.x = 7
-	player.position.y = 1.5
 	
+	player.position.x = 7 * direction
+	player.position.y = 1.5
+
+## Checks if raycast is colliding with pipe and player not jumping
 func can_slide(direction) -> bool:
 	var rayCast: RayCast3D
 	if direction > 0: 
@@ -87,7 +86,7 @@ func can_slide(direction) -> bool:
 	
 	return rayCast.is_colliding() and not is_jumping
 
-# Función para verificar si la tubería ha terminado
+## Verifica si la tubería ha terminado
 func check_pipe_end() -> bool:
 	if not is_sliding():
 		return false
@@ -101,9 +100,6 @@ func check_pipe_end() -> bool:
 	# Si ya no hay colisión, la tubería ha terminado
 	return not rayCast.is_colliding()
 
-func handle_slide_movement():
-	pass
-
 func stop_sliding():
 	stopped_sliding.emit()
 	if lane == -2:
@@ -113,7 +109,7 @@ func stop_sliding():
 	player.position.y -= 1.5
 	_snap_player_to_lane()
 
-
+## Jump fall animation
 func _on_jump_timer_timeout() -> void:
 	player.position -= Vector3(0, 2.5, 0)
 	is_jumping = false
