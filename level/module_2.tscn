@@ -1,25 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2d0kl0fx30o1"]
+[gd_scene load_steps=6 format=3 uid="uid://b2d0kl0fx30o1"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_sk7ld"]
 [ext_resource type="PackedScene" uid="uid://lv00wsula01r" path="res://art/object3D/ModuloSimple.002.glb" id="2_sk7ld"]
-[ext_resource type="PackedScene" uid="uid://ib6j20n6jjl" path="res://art/object3D/ProppsColicion/Pipeline.002.glb" id="3_i55bt"]
+[ext_resource type="PackedScene" uid="uid://bpc2xnv0sx6yw" path="res://level/obstacles/obstacle_pipe.tscn" id="3_i55bt"]
 [ext_resource type="PackedScene" uid="uid://dbnwttvf3aoxu" path="res://art/object3D/deco/Arbol.003.glb" id="3_m10dt"]
 [ext_resource type="PackedScene" uid="uid://b6c34nydhpfxe" path="res://art/object3D/deco/Arbol.002.glb" id="4_i55bt"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u6sgr"]
-size = Vector3(1, 1, 15)
 
 [node name="Module2" instance=ExtResource("1_sk7ld")]
 
 [node name="ModuloSimple_002" parent="." index="1" instance=ExtResource("2_sk7ld")]
 
-[node name="Area3D" type="Area3D" parent="." index="2"]
+[node name="Pipe" parent="." index="2" instance=ExtResource("3_i55bt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.922)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-shape = SubResource("BoxShape3D_u6sgr")
-
-[node name="Pipeline_002" parent="Area3D" index="1" instance=ExtResource("3_i55bt")]
 
 [node name="Arbol_0032" parent="." index="3" instance=ExtResource("3_m10dt")]
 transform = Transform3D(0.882275, 0, -0.470735, 0, 1, 0, 0.470735, 0, 0.882275, 103.909, 7.80013, -8.20981)

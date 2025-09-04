@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpc2xnv0sx6yw"]
+
+[ext_resource type="PackedScene" uid="uid://ib6j20n6jjl" path="res://art/object3D/ProppsColicion/Pipeline.002.glb" id="1_mifjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6sgr"]
+size = Vector3(1, 2.06812, 15)
+
+[node name="ObstaclePipe" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534058, 0)
+shape = SubResource("BoxShape3D_u6sgr")
+
+[node name="Pipeline_002" parent="." instance=ExtResource("1_mifjx")]

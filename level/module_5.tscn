@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="3_l67x8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgftn"]
-size = Vector3(27.2214, 1, 31.0114)
+size = Vector3(27.2214, 1, 25.8966)
 
 [node name="Module5" instance=ExtResource("1_fgftn")]
 
@@ -15,7 +15,7 @@ size = Vector3(27.2214, 1, 31.0114)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31953, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.729004, 0, -15.0057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.729004, 0, -15.3098)
 shape = SubResource("BoxShape3D_fgftn")
 
 [node name="Casa_001" parent="." index="3" instance=ExtResource("3_l67x8")]

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="4_pv66a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynywu"]
-size = Vector3(1, 5, 15)
+size = Vector3(1, 5, 7.12269)
 
 [node name="Module2" instance=ExtResource("1_favod")]
 
@@ -17,13 +17,15 @@ size = Vector3(1, 5, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -22.5025)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.334087)
 shape = SubResource("BoxShape3D_ynywu")
+debug_color = Color(0.970329, 0, 0.455448, 0.42)
 
 [node name="Piedra_001" parent="Area3D" index="1" instance=ExtResource("3_21iau")]
-transform = Transform3D(0.145123, 0, 0.582185, 0, 0.6, 0, -0.582185, 0, 0.145123, 0, 0, 3.02024)
+transform = Transform3D(0.120936, 0, 0.485154, 0, 0.5, 0, -0.485154, 0, 0.120936, 0, 0, 3.02024)
 
 [node name="Piedra_002" parent="Area3D" index="2" instance=ExtResource("3_21iau")]
-transform = Transform3D(-0.0502693, 0, -0.59789, 0, 0.6, 0, 0.59789, 0, -0.0502693, 0, 0, -3.49965)
+transform = Transform3D(-0.0418911, 0, -0.498242, 0, 0.5, 0, 0.498242, 0, -0.0418911, 0, 0, -3.49965)
 
 [node name="Bush_0022" parent="." index="3" instance=ExtResource("3_1r0u8")]
 transform = Transform3D(0.439704, 0, -0.898143, 0, 1, 0, 0.898143, 0, 0.439704, -15.4984, 4.39808, -19.0472)
