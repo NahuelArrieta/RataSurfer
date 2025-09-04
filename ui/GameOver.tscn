@@ -12,6 +12,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2b5w")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.313726)
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -21,16 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_panel4")
 expand_mode = 1
-stretch_mode = 6
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.6)
+stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -48,7 +48,7 @@ theme_override_constants/separation = 60
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 96
 text = "GAME OVER"
 horizontal_alignment = 1
