@@ -22,7 +22,6 @@ const EXIT_FADE_TIME := 0.30
 func _ready() -> void:
 	# 🔊 Cargar y aplicar settings
 	Settings.load_settings()
-	print(Settings.music_volume)
 	Settings.apply_volumes()
 
 	# Ajustar margen superior para bajar el bloque (título + botones)

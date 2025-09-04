@@ -85,7 +85,7 @@ func can_slide(direction) -> bool:
 	else: 
 		rayCast = left_ray
 	
-	return rayCast.is_colliding()
+	return rayCast.is_colliding() and not is_jumping
 
 # Función para verificar si la tubería ha terminado
 func check_pipe_end() -> bool:
