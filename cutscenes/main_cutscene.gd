@@ -20,7 +20,7 @@ func _on_video_finished() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Permitir saltar con Enter/Esc (opcional)
-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if video.is_playing():
 			video.stop()
 			_on_video_finished()
