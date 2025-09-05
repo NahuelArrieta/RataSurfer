@@ -21,11 +21,13 @@ offset_right = 197.5
 offset_bottom = 140.0
 grow_horizontal = 2
 
-[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 64
-text = "Score: 0"
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[shake rate=30.0 level=15 connected=1][color=ff3333]Score: 0[/color][/shake]"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

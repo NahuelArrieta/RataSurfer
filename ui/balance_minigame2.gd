@@ -34,3 +34,8 @@ func _on_player_started_sliding() -> void:
 
 func _on_player_stopped_sliding() -> void:
 	finish_balance_game()
+
+
+func _on_player_player_touched_obstacle() -> void:
+	# Hides mini game when player dies
+	finish_balance_game()

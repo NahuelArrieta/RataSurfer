@@ -47,7 +47,7 @@ func _on_player_player_touched_obstacle() -> void:
 
 
 func _on_player_started_sliding() -> void:
-	ScoreManager.score_multiplier = 2
+	ScoreManager.score_multiplier = 10
 
 
 func _on_player_stopped_sliding() -> void:

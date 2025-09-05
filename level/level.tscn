@@ -242,9 +242,12 @@ volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
+[connection signal="player_touched_obstacle" from="Player" to="UI/BalanceMinigame" method="_on_player_player_touched_obstacle"]
 [connection signal="started_sliding" from="Player" to="." method="_on_player_started_sliding"]
+[connection signal="started_sliding" from="Player" to="UI/ScoreUI" method="_on_player_started_sliding"]
 [connection signal="started_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_started_sliding"]
 [connection signal="stopped_sliding" from="Player" to="." method="_on_player_stopped_sliding"]
+[connection signal="stopped_sliding" from="Player" to="UI/ScoreUI" method="_on_player_stopped_sliding"]
 [connection signal="stopped_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_stopped_sliding"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
 [connection signal="random_zone_out" from="UI/BalanceMinigame" to="Player" method="_on_balance_minigame_random_zone_out"]
