@@ -1,6 +1,8 @@
 extends Node3D
 
+
 @onready var gameover_ui: Control = $UI/GameoverUI
+@onready var balance_minigame: Control = $UI/BalanceMinigame
 
 func _ready():
 	print("Nivel iniciado")
@@ -42,3 +44,11 @@ func _on_balance_minigame_completed(success: bool):
 func _on_player_player_touched_obstacle() -> void:
 	gameover_ui.show()
 	get_tree().paused = true
+
+
+func _on_player_started_sliding() -> void:
+	ScoreManager.score_multiplier = 2
+
+
+func _on_player_stopped_sliding() -> void:
+	ScoreManager.score_multiplier = 1

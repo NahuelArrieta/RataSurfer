@@ -371,12 +371,15 @@ stream = SubResource("AudioStreamRandomizer_kdgjc")
 volume_db = -5.0
 bus = &"SFX"
 
+[connection signal="lost_minigame" from="." to="MovementHandler" method="_on_player_lost_minigame"]
 [connection signal="area_entered" from="GameoverArea3D" to="." method="_on_gameover_area_3d_area_entered"]
 [connection signal="moved_left" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_moved_left"]
 [connection signal="moved_right" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_moved_right"]
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]
 [connection signal="player_jumped" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_player_jumped"]
+[connection signal="started_sliding" from="MovementHandler" to="." method="_on_movement_handler_started_sliding"]
 [connection signal="started_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_started_sliding"]
+[connection signal="stopped_sliding" from="MovementHandler" to="." method="_on_movement_handler_stopped_sliding"]
 [connection signal="stopped_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_stopped_sliding"]
 [connection signal="timeout" from="MovementHandler/JumpTimer" to="MovementHandler" method="_on_jump_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

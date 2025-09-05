@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=36 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c5m0luwwp8t5s" path="res://level/module_16.tscn" id="19_1vdk1"]
 [ext_resource type="PackedScene" uid="uid://ci1erp0qn0g44" path="res://level/module_17.tscn" id="20_3dv6e"]
 [ext_resource type="AudioStream" uid="uid://buv6k2c7a4rb0" path="res://sound/BEAT ACEQUIA 20db ACT..mp3" id="24_kdsbj"]
+[ext_resource type="PackedScene" uid="uid://chg3wqd24b0eh" path="res://ui/balance_minigame.tscn" id="24_ml0fe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -217,6 +218,9 @@ autostart = true
 
 [node name="GameoverUI" parent="UI" instance=ExtResource("6_0v1st")]
 
+[node name="BalanceMinigame" parent="UI" instance=ExtResource("24_ml0fe")]
+visible = false
+
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
@@ -238,4 +242,9 @@ volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
+[connection signal="started_sliding" from="Player" to="." method="_on_player_started_sliding"]
+[connection signal="started_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_started_sliding"]
+[connection signal="stopped_sliding" from="Player" to="." method="_on_player_stopped_sliding"]
+[connection signal="stopped_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_stopped_sliding"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
+[connection signal="random_zone_out" from="UI/BalanceMinigame" to="Player" method="_on_balance_minigame_random_zone_out"]

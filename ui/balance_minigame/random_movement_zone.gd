@@ -1,8 +1,11 @@
 extends Control
 
+@onready var direction_timer: Timer = $DirectionTimer
+
 const LEFT_LIMIT := 0
-const SPEED := 50
+const SPEED := 150
 const RIGHT_LIMIT := 380
+const CENTER := 190
 
 var random_direction := 0
 
@@ -20,3 +23,10 @@ func _random_movement(delta: float) -> void:
 
 func _on_direction_timer_timeout() -> void:
 	random_direction = randi_range(-1, 1)
+
+func start() -> void:
+	direction_timer.start()
+
+func reset() -> void:
+	random_direction = 0
+	position.x = CENTER

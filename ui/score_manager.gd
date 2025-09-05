@@ -7,6 +7,7 @@ var current_score: int = 0
 var high_score: int = 0
 var score_per_second: int = 10  # Puntos por segundo de supervivencia
 var time_elapsed: float = 0.0
+var score_multiplier := 1
 
 const SAVE_FILE = "user://high_score.save"
 
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 	time_elapsed += delta
 	
 	# Calcular score basado en tiempo (puntos por segundo)
-	var new_score = int(time_elapsed * score_per_second)
+	var new_score = int(time_elapsed * score_per_second * score_multiplier)
 	
 	# Solo actualizar si el score cambió
 	if new_score != current_score:
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 func reset_score() -> void:
 	time_elapsed = 0.0
 	current_score = 0
+	score_multiplier = 1
 	score_updated.emit(current_score)
 
 func get_current_score() -> int:

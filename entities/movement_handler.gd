@@ -101,6 +101,7 @@ func check_pipe_end() -> bool:
 	return not rayCast.is_colliding()
 
 func stop_sliding():
+	
 	stopped_sliding.emit()
 	if lane == -2:
 		lane = -1
@@ -113,3 +114,8 @@ func stop_sliding():
 func _on_jump_timer_timeout() -> void:
 	player.position -= Vector3(0, 2.5, 0)
 	is_jumping = false
+
+
+func _on_player_lost_minigame() -> void:
+	if is_sliding(): # Might dodge bug where it activates when the minigame ends 2 times because of hitboxes
+		stop_sliding()

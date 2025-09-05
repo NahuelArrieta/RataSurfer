@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bh1dk8ni664ny" path="res://ui/balance_minigame/random_movement_zone.gd" id="3_bdkjo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oxwf"]
-size = Vector2(156, 30)
+size = Vector2(136, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxmax"]
 
@@ -46,13 +46,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
+offset_left = -50.0
 offset_top = -15.0
-offset_right = 60.0
+offset_right = 50.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(60, 15)
+pivot_offset = Vector2(50, 15)
 script = ExtResource("2_jxmax")
 
 [node name="ActiveZoneBackground" type="ColorRect" parent="MainBar/ControlledZone"]
@@ -65,7 +65,7 @@ grow_vertical = 2
 color = Color(0, 1, 0, 0.3)
 
 [node name="Area2D" type="Area2D" parent="MainBar/ControlledZone"]
-position = Vector2(60, 15)
+position = Vector2(50, 15)
 collision_layer = 0
 collision_mask = 2
 
@@ -106,7 +106,6 @@ shape = SubResource("RectangleShape2D_jxmax")
 
 [node name="DirectionTimer" type="Timer" parent="MainBar/RandomMovementZone"]
 wait_time = 0.5
-autostart = true
 
 [connection signal="area_entered" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_exited"]
