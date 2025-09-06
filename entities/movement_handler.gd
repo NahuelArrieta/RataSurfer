@@ -14,6 +14,7 @@ signal lost_minigame_and_is_sliding
 
 @export var lane_size := 5
 
+var movement_disabled := false
 var is_jumping := false
 
 func _ready() -> void:
@@ -33,6 +34,9 @@ func _snap_player_to_lane() -> void:
 	player.position.x = lane * lane_size
 	
 func _physics_process(delta: float) -> void:
+	if movement_disabled: # used when dead
+		return
+	
 	if not is_sliding():
 		handle_lane_movement()
 	elif is_sliding() and check_pipe_end():
@@ -121,3 +125,7 @@ func _on_player_lost_minigame() -> void:
 	if is_sliding(): # Might dodge bug where it activates when the minigame ends 2 times because of hitboxes
 		stop_sliding()
 		lost_minigame_and_is_sliding.emit()
+
+
+func _on_gameover_area_3d_area_entered(area: Area3D) -> void:
+	movement_disabled = true

@@ -52,3 +52,8 @@ func _on_player_started_sliding() -> void:
 
 func _on_player_stopped_sliding() -> void:
 	ScoreManager.score_multiplier = 1
+
+
+func _on_player_player_died() -> void:
+	gameover_ui.show()
+	get_tree().paused = true
