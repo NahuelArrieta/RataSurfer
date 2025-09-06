@@ -5,6 +5,7 @@ signal stopped_sliding
 signal player_jumped
 signal moved_right
 signal moved_left
+signal lost_minigame_and_is_sliding
 
 @onready var player: CharacterBody3D = $".."
 @onready var right_ray: RayCast3D = $"../RightRay"
@@ -119,3 +120,4 @@ func _on_jump_timer_timeout() -> void:
 func _on_player_lost_minigame() -> void:
 	if is_sliding(): # Might dodge bug where it activates when the minigame ends 2 times because of hitboxes
 		stop_sliding()
+		lost_minigame_and_is_sliding.emit()

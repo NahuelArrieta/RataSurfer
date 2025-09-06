@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://chg3wqd24b0eh"]
+[gd_scene load_steps=8 format=3 uid="uid://chg3wqd24b0eh"]
 
 [ext_resource type="Script" uid="uid://dskbmdqy2aqyk" path="res://ui/balance_minigame2.gd" id="1_7oxwf"]
 [ext_resource type="Script" uid="uid://b7ta4xbw6ftma" path="res://ui/balance_minigame/controlled_zone.gd" id="2_jxmax"]
 [ext_resource type="Script" uid="uid://bh1dk8ni664ny" path="res://ui/balance_minigame/random_movement_zone.gd" id="3_bdkjo"]
+[ext_resource type="Texture2D" uid="uid://r1vh08avq4dg" path="res://art/ui/tile_0167-export.png" id="4_wxyf5"]
+[ext_resource type="Texture2D" uid="uid://cpon5ycxt6f5v" path="res://art/ui/tile_0169-export.png" id="5_k1063"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oxwf"]
 size = Vector2(136, 30)
@@ -106,6 +108,36 @@ shape = SubResource("RectangleShape2D_jxmax")
 
 [node name="DirectionTimer" type="Timer" parent="MainBar/RandomMovementZone"]
 wait_time = 0.5
+
+[node name="RightArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = -80.0
+offset_right = 380.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wxyf5")
+
+[node name="LeftArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -80.0
+offset_right = -220.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_k1063")
 
 [connection signal="area_entered" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="MainBar/ControlledZone/Area2D" to="." method="_on_area_2d_area_exited"]
