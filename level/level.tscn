@@ -26,9 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://ci1erp0qn0g44" path="res://level/module_17.tscn" id="20_3dv6e"]
 [ext_resource type="AudioStream" uid="uid://buv6k2c7a4rb0" path="res://sound/BEAT ACEQUIA 20db ACT..mp3" id="24_kdsbj"]
 [ext_resource type="PackedScene" uid="uid://chg3wqd24b0eh" path="res://ui/balance_minigame.tscn" id="24_ml0fe"]
-[ext_resource type="Texture2D" uid="uid://r1vh08avq4dg" path="res://art/ui/tile_0167-export.png" id="25_7cdnq"]
-[ext_resource type="Texture2D" uid="uid://d6axq5qgdi6k" path="res://art/ui/tile_0166-export.png" id="25_lsj08"]
-[ext_resource type="Texture2D" uid="uid://cpon5ycxt6f5v" path="res://art/ui/tile_0169-export.png" id="26_lsj08"]
+[ext_resource type="Texture2D" uid="uid://b03xcb6lyrpvx" path="res://art/ui/tile_0166-wexport.png" id="26_kdj2k"]
+[ext_resource type="Texture2D" uid="uid://o6shbcdeyf0c" path="res://art/ui/tile_0167-wexport.png" id="26_u5n7q"]
+[ext_resource type="Texture2D" uid="uid://bgpeir0y7amhu" path="res://art/ui/tile_0169-wexport.png" id="27_qslh7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -279,13 +279,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -278.0
-offset_right = 84.0
-offset_bottom = -118.0
+offset_left = -80.0
+offset_top = -281.0
+offset_right = 80.0
+offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("25_lsj08")
+texture = ExtResource("26_kdj2k")
 
 [node name="RightArrow" type="TextureRect" parent="UI/Tutorial"]
 layout_mode = 1
@@ -300,7 +300,7 @@ offset_right = 380.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("25_7cdnq")
+texture = ExtResource("26_u5n7q")
 
 [node name="LeftArrow" type="TextureRect" parent="UI/Tutorial"]
 layout_mode = 1
@@ -315,7 +315,7 @@ offset_right = -220.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("26_lsj08")
+texture = ExtResource("27_qslh7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Tutorial"]
 libraries = {

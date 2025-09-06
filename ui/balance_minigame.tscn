@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dskbmdqy2aqyk" path="res://ui/balance_minigame2.gd" id="1_7oxwf"]
 [ext_resource type="Script" uid="uid://b7ta4xbw6ftma" path="res://ui/balance_minigame/controlled_zone.gd" id="2_jxmax"]
 [ext_resource type="Script" uid="uid://bh1dk8ni664ny" path="res://ui/balance_minigame/random_movement_zone.gd" id="3_bdkjo"]
-[ext_resource type="Texture2D" uid="uid://r1vh08avq4dg" path="res://art/ui/tile_0167-export.png" id="4_wxyf5"]
-[ext_resource type="Texture2D" uid="uid://cpon5ycxt6f5v" path="res://art/ui/tile_0169-export.png" id="5_k1063"]
+[ext_resource type="Texture2D" uid="uid://o6shbcdeyf0c" path="res://art/ui/tile_0167-wexport.png" id="4_wxyf5"]
+[ext_resource type="Texture2D" uid="uid://bgpeir0y7amhu" path="res://art/ui/tile_0169-wexport.png" id="5_k1063"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oxwf"]
 size = Vector2(136, 30)
