@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="RataSurfer"
+config/name="AcequiaSurfers"
+config/description="A game about a drunk rat trying to save his friend"
 config/tags=PackedStringArray("jam_game")
 run/main_scene="uid://vmctgci7ykxm"
 config/features=PackedStringArray("4.4", "GL Compatibility")

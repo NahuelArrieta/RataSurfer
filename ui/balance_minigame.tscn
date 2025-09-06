@@ -64,7 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 1, 0, 0.3)
+color = Color(0.0117647, 0.996078, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="MainBar/ControlledZone"]
 position = Vector2(50, 15)
@@ -96,7 +96,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 1)
+color = Color(1, 0, 0.921569, 1)
 
 [node name="Area2D" type="Area2D" parent="MainBar/RandomMovementZone"]
 position = Vector2(10, 10)

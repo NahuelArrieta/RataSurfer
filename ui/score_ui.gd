@@ -32,7 +32,7 @@ func update_score_display(score: float):
 	if score_label and not is_multiplier_on:
 		score_label.text = "Score: " + str(int(score))
 	elif score_label and is_multiplier_on:
-		score_label.text = "[shake rate=30.0 level=15 connected=1][color=ff3333]Score: " + str(int(score)) + "[/color][/shake]"
+		score_label.text = "[shake rate=30.0 level=15 connected=1][color=ff00eb]Score: " + str(int(score)) + " x10[/color][/shake]"
 
 func update_high_score_display(high_score: float):
 	if high_score_label:

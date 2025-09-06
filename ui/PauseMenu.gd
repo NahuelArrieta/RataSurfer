@@ -13,9 +13,9 @@ const EXIT_SCALE_TIME := 0.45
 const EXIT_FADE_TIME := 0.30
 
 # ------------------ NODOS ------------------
-@onready var center_container: Control = $CenterContainer
-@onready var resume_button: Button = $CenterContainer/VBoxContainer/Button
-@onready var main_menu_button: Button = $CenterContainer/VBoxContainer/Button2
+@onready var center_container: Control = $VBoxContainer
+@onready var resume_button: TextureButton = $VBoxContainer/PlayButton
+@onready var main_menu_button: TextureButton = $VBoxContainer/ExitButton
 
 
 # ------------------ READY ------------------

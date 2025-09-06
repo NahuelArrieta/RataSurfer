@@ -4,9 +4,9 @@ extends Control
 const START_MENU_PATH := "res://ui/StartMenu.tscn"
 
 # ------------------ NODOS ------------------
-@onready var music_slider: HSlider = $"CenterContainer/VBoxContainer/MusicSlider"
-@onready var sfx_slider: HSlider   = $"CenterContainer/VBoxContainer/SfxSlider"
-@onready var back_button: Button   = $"CenterContainer/VBoxContainer/BackButton"
+@onready var music_slider: HSlider = $VBoxContainer/MusicSlider
+@onready var sfx_slider: HSlider   = $VBoxContainer/SfxSlider
+@onready var back_button: TextureButton   = $VBoxContainer/BackButton
 
 func _ready() -> void:
 	# 🔊 Cargar valores guardados

@@ -12,12 +12,12 @@ const EXIT_SCALE_TIME := 0.45
 const EXIT_FADE_TIME := 0.30
 
 # ------------------ NODOS ------------------
-@onready var title_label: Label = $"HBoxContainer/MarginContainer/VBoxContainer/Label"
-@onready var start_button: Button = $"HBoxContainer/MarginContainer/VBoxContainer/Button"
-@onready var options_button: Button = $"HBoxContainer/MarginContainer/VBoxContainer/Button2"
+@onready var title_label: TextureRect = $VBoxContainer/Label
+@onready var start_button: TextureButton = $VBoxContainer/Button
+@onready var options_button: TextureButton = $VBoxContainer/Button2
 @onready var menu_player: AudioStreamPlayer = $"MenuPlayer"
-@onready var vbox: VBoxContainer = $"HBoxContainer/MarginContainer/VBoxContainer"
-@onready var margin: MarginContainer = $"HBoxContainer/MarginContainer"
+@onready var vbox: VBoxContainer = $VBoxContainer
+#@onready var margin: MarginContainer = $"HBoxContainer/MarginContainer"
 
 func _ready() -> void:
 	# 🔊 Cargar y aplicar settings
@@ -25,7 +25,7 @@ func _ready() -> void:
 	Settings.apply_volumes()
 
 	# Ajustar margen superior para bajar el bloque (título + botones)
-	margin.add_theme_constant_override("margin_top", 220) # 🔽 bajá este valor para más espacio
+	#margin.add_theme_constant_override("margin_top", 220) # 🔽 bajá este valor para más espacio
 
 	# Esperamos un frame para asegurar tamaños
 	await get_tree().process_frame

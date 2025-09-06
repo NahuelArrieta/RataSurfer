@@ -43,6 +43,21 @@ background_mode = 2
 sky = SubResource("Sky_qohg2")
 tonemap_mode = 2
 
+[sub_resource type="Animation" id="Animation_lsj08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_7cdnq"]
 resource_name = "blink"
 length = 9.5
@@ -58,21 +73,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_lsj08"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u5n7q"]
@@ -253,14 +253,6 @@ autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ScoreUI" parent="UI" instance=ExtResource("3_0x9y8")]
-
-[node name="Control" parent="UI" instance=ExtResource("5_ivpvi")]
-visible = false
-
-[node name="GameoverUI" parent="UI" instance=ExtResource("6_0v1st")]
-visible = false
-
 [node name="BalanceMinigame" parent="UI" instance=ExtResource("24_ml0fe")]
 visible = false
 
@@ -323,6 +315,14 @@ libraries = {
 }
 autoplay = "blink"
 
+[node name="ScoreUI" parent="UI" instance=ExtResource("3_0x9y8")]
+
+[node name="Control" parent="UI" instance=ExtResource("5_ivpvi")]
+visible = false
+
+[node name="GameoverUI" parent="UI" instance=ExtResource("6_0v1st")]
+visible = false
+
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
@@ -346,10 +346,10 @@ bus = &"SFX"
 [connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
 [connection signal="player_touched_obstacle" from="Player" to="UI/BalanceMinigame" method="_on_player_player_touched_obstacle"]
 [connection signal="started_sliding" from="Player" to="." method="_on_player_started_sliding"]
-[connection signal="started_sliding" from="Player" to="UI/ScoreUI" method="_on_player_started_sliding"]
 [connection signal="started_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_started_sliding"]
+[connection signal="started_sliding" from="Player" to="UI/ScoreUI" method="_on_player_started_sliding"]
 [connection signal="stopped_sliding" from="Player" to="." method="_on_player_stopped_sliding"]
-[connection signal="stopped_sliding" from="Player" to="UI/ScoreUI" method="_on_player_stopped_sliding"]
 [connection signal="stopped_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_stopped_sliding"]
+[connection signal="stopped_sliding" from="Player" to="UI/ScoreUI" method="_on_player_stopped_sliding"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
 [connection signal="random_zone_out" from="UI/BalanceMinigame" to="Player" method="_on_balance_minigame_random_zone_out"]
