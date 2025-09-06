@@ -29,4 +29,4 @@ func start() -> void:
 
 func reset() -> void:
 	random_direction = 0
-	position.x = CENTER
+	position.x = CENTER + randi_range(-20,20)

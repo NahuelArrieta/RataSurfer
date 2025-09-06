@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://5ylubghgfke4"]
+[gd_scene load_steps=64 format=3 uid="uid://5ylubghgfke4"]
 
 [ext_resource type="Texture2D" uid="uid://gj7oli6ijf64" path="res://art/sprites/PowerVino.png" id="1_b0kkn"]
 [ext_resource type="Script" uid="uid://brxwcrj8nf6er" path="res://entities/player.gd" id="1_x08pd"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bmcqksjwko2wh" path="res://sound/rata_sfx/Muertev2.ogg" id="12_dchgp"]
 [ext_resource type="AudioStream" uid="uid://dbclcg6xw5px2" path="res://sound/rata_sfx/TrompetaRandom3.ogg" id="12_kdgjc"]
 [ext_resource type="AudioStream" uid="uid://dnb50fsq5idhi" path="res://sound/rata_sfx/AtraparMonedaCut.ogg" id="14_0i614"]
+[ext_resource type="Script" uid="uid://becqlejv6pvek" path="res://entities/cpu_particles_3d.gd" id="15_0i614"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tjdhl"]
 size = Vector3(0.836914, 2.70874, 0.439209)
@@ -405,6 +406,13 @@ random_pitch = 1.5
 streams_count = 1
 stream_0/stream = ExtResource("12_kdgjc")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0i8f"]
+albedo_color = Color(0.61, 0.8245, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q0i8f"]
+material = SubResource("StandardMaterial3D_q0i8f")
+size = Vector2(0.1, 0.1)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_x08pd")
 
@@ -474,19 +482,40 @@ stream = SubResource("AudioStreamRandomizer_q0i8f")
 [node name="DeathAudioPlayer" type="AudioStreamPlayer3D" parent="AudioPlayer"]
 stream = ExtResource("14_0i614")
 
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.882843, -0.17515)
+amount = 20
+lifetime = 0.5
+explosiveness = 1.0
+mesh = SubResource("PlaneMesh_q0i8f")
+emission_shape = 3
+emission_box_extents = Vector3(0.76, 0.045, 0.18)
+direction = Vector3(0, 0, 1)
+flatness = 0.85
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+color = Color(0.31, 0.816, 1, 1)
+script = ExtResource("15_0i614")
+
 [connection signal="lost_minigame" from="." to="MovementHandler" method="_on_player_lost_minigame"]
 [connection signal="area_entered" from="GameoverArea3D" to="MovementHandler" method="_on_gameover_area_3d_area_entered"]
 [connection signal="area_entered" from="GameoverArea3D" to="AnimationPlayer" method="_on_gameover_area_3d_area_entered"]
 [connection signal="lost_minigame_and_is_sliding" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_lost_minigame_and_is_sliding"]
 [connection signal="moved_left" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_moved_left"]
+[connection signal="moved_left" from="MovementHandler" to="CPUParticles3D" method="_on_movement_handler_moved_left"]
 [connection signal="moved_right" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_moved_right"]
+[connection signal="moved_right" from="MovementHandler" to="CPUParticles3D" method="_on_movement_handler_moved_right"]
 [connection signal="player_jumped" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_player_jumped"]
 [connection signal="player_jumped" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_player_jumped"]
+[connection signal="player_jumped" from="MovementHandler" to="CPUParticles3D" method="_on_movement_handler_player_jumped"]
 [connection signal="started_sliding" from="MovementHandler" to="." method="_on_movement_handler_started_sliding"]
 [connection signal="started_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_started_sliding"]
 [connection signal="started_sliding" from="MovementHandler" to="AudioPlayer" method="_on_movement_handler_started_sliding"]
+[connection signal="started_sliding" from="MovementHandler" to="CPUParticles3D" method="_on_movement_handler_started_sliding"]
 [connection signal="stopped_sliding" from="MovementHandler" to="." method="_on_movement_handler_stopped_sliding"]
 [connection signal="stopped_sliding" from="MovementHandler" to="AnimationPlayer" method="_on_movement_handler_stopped_sliding"]
+[connection signal="stopped_sliding" from="MovementHandler" to="CPUParticles3D" method="_on_movement_handler_stopped_sliding"]
 [connection signal="timeout" from="MovementHandler/JumpTimer" to="MovementHandler" method="_on_jump_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
 [connection signal="death_animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_death_animation_finished"]

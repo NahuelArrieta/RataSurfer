@@ -6,7 +6,7 @@ const SPEED := 200
 
 const LEFT_LIMIT := 0
 const RIGHT_LIMIT := 300
-const CENTER := 140
+const CENTER := 150
 
 var direction := 0
 var input_direction := 0
