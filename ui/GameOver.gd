@@ -64,12 +64,12 @@ func _play_exit_animation() -> Signal:
 
 
 # ------------------ EFECTO BOTONES ------------------
-func _on_button_hover(btn: Button) -> void:
+func _on_button_hover(btn: TextureButton) -> void:
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_HOVER_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-func _on_button_exit(btn: Button) -> void:
+func _on_button_exit(btn: TextureButton) -> void:
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_NORMAL_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)

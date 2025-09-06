@@ -57,12 +57,12 @@ const BTN_HOVER_SCALE := Vector2(1.1, 1.1)
 const BTN_NORMAL_SCALE := Vector2(1.0, 1.0)
 const BTN_ANIM_TIME := 0.18
 
-func _on_button_hover(btn: Button) -> void:
+func _on_button_hover(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_HOVER_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-func _on_button_exit(btn: Button) -> void:
+func _on_button_exit(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_NORMAL_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)
