@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4w62k58nla16" path="res://art/object3D/deco/Casa.001.glb" id="5_5dmb4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgw76"]
-size = Vector3(2.5, 7.8, 36)
+size = Vector3(2.5, 7.8, 31.7197)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_al8bq"]
 size = Vector3(2, 2, 2)
@@ -22,7 +22,7 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35432, -1.95428, -15.1996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.35432, -1.95428, -13.0595)
 shape = SubResource("BoxShape3D_kgw76")
 debug_color = Color(0.988137, 0, 0.305352, 0.42)
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://751buaa12h1i" path="res://art/object3D/ModuloPipeline.001.glb" id="2_fw8sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw8sk"]
-size = Vector3(2.5, 7.8, 36)
+size = Vector3(2.5, 7.8, 31)
 
 [node name="EnvironmentModule" instance=ExtResource("1_fw8sk")]
 
@@ -13,7 +13,7 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -15.365)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -12.9973)
 shape = SubResource("BoxShape3D_fw8sk")
 debug_color = Color(0.996594, 0, 0.183643, 0.42)
 
