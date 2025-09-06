@@ -30,13 +30,13 @@ mesh = SubResource("BoxMesh_0js0f")
 shape = SubResource("BoxShape3D_awed4")
 
 [node name="LataCerveza" parent="Area3D" index="2" instance=ExtResource("3_aiucr")]
-transform = Transform3D(0.974051, 0, 0.226328, -0.055068, 0.969949, 0.236997, -0.219527, -0.24331, 0.944779, 0, 0, -0.815418)
+transform = Transform3D(1.46108, 5.02914e-08, 0.339493, -0.082602, 1.45492, 0.355494, -0.329291, -0.364965, 1.41717, 0.000620842, 0, -0.984966)
 
 [node name="LataCerveza2" parent="Area3D" index="3" instance=ExtResource("3_aiucr")]
-transform = Transform3D(0.941923, 0, -0.33583, -0.113449, 0.941211, -0.318199, 0.316087, 0.337818, 0.886548, 0.698772, 0, 0.126818)
+transform = Transform3D(1.47977, 0.217113, 0.114615, -0.170173, 1.41182, -0.477298, -0.176962, 0.457859, 1.41741, 0.698772, 0, 0.126818)
 
 [node name="LataCerveza3" parent="Area3D" index="4" instance=ExtResource("3_aiucr")]
-transform = Transform3D(1, 0, 0, 0, 0.800166, -0.599778, 0, 0.599778, 0.800166, -0.347695, 0, 0.126818)
+transform = Transform3D(1.5, 0, 0, 0, 1.46192, -0.335845, 0, 0.335845, 1.46192, -0.503334, -2.38419e-07, 0.258192)
 
 [node name="Bush_0012" parent="." index="3" instance=ExtResource("3_qbe5e")]
 transform = Transform3D(-0.0276251, 0, 0.999618, 0, 1, 0, -0.999618, 0, -0.0276251, -18.8385, 5.74915, -19.5116)

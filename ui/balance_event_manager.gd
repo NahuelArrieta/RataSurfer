@@ -43,8 +43,8 @@ func show_balance_minigame():
 	get_tree().current_scene.add_child(minigame_instance)
 	
 	# Conectar señales con CONNECT_ONE_SHOT 
-	minigame_instance.success.connect(_on_minigame_success, CONNECT_ONE_SHOT)
-	minigame_instance.fail.connect(_on_minigame_fail, CONNECT_ONE_SHOT)
+	#minigame_instance.success.connect(_on_minigame_success, CONNECT_ONE_SHOT)
+	minigame_instance.random_zone_out.connect(_on_minigame_fail, CONNECT_ONE_SHOT)
 	
 func _on_minigame_success():
 	if movement_handler:

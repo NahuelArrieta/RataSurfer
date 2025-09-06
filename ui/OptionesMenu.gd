@@ -4,10 +4,9 @@ extends Control
 const START_MENU_PATH := "res://ui/StartMenu.tscn"
 
 # ------------------ NODOS ------------------
-@onready var music_slider: HSlider = $"CenterContainer/VBoxContainer/MusicSlider"
-@onready var sfx_slider: HSlider   = $"CenterContainer/VBoxContainer/SfxSlider"
-@onready var menu_slider: HSlider  = $"CenterContainer/VBoxContainer/MenuSlider"
-@onready var back_button: Button   = $"CenterContainer/VBoxContainer/BackButton"
+@onready var music_slider: HSlider = $VBoxContainer/MusicSlider
+@onready var sfx_slider: HSlider   = $VBoxContainer/SfxSlider
+@onready var back_button: TextureButton   = $VBoxContainer/BackButton
 
 func _ready() -> void:
 	# 🔊 Cargar valores guardados
@@ -16,12 +15,10 @@ func _ready() -> void:
 	print("=== INIT OPTIONS MENU ===")
 	print("Music:", Settings.music_volume)
 	print("SFX:", Settings.sfx_volume)
-	print("Menu:", Settings.menu_volume)
 
 	# Inicializar sliders con valores de Settings
 	music_slider.value = Settings.music_volume * 100
 	sfx_slider.value   = Settings.sfx_volume   * 100
-	menu_slider.value  = Settings.menu_volume  * 100
 
 	# Aplicar los volúmenes al cargar
 	Settings.apply_volumes()
@@ -60,12 +57,12 @@ const BTN_HOVER_SCALE := Vector2(1.1, 1.1)
 const BTN_NORMAL_SCALE := Vector2(1.0, 1.0)
 const BTN_ANIM_TIME := 0.18
 
-func _on_button_hover(btn: Button) -> void:
+func _on_button_hover(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_HOVER_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-func _on_button_exit(btn: Button) -> void:
+func _on_button_exit(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_NORMAL_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)

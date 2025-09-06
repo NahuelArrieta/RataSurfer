@@ -1,6 +1,8 @@
 extends Node3D
 
+
 @onready var gameover_ui: Control = $UI/GameoverUI
+@onready var balance_minigame: Control = $UI/BalanceMinigame
 
 func _ready():
 	print("Nivel iniciado")
@@ -13,19 +15,13 @@ func _ready():
 		print("❌ ScoreManager NO encontrado en el nivel")
 	
 	# Agregar el gestor de eventos del minijuego de equilibrio
-	var balance_manager = preload("res://ui/balance_event_manager.gd").new()
-	add_child(balance_manager)
-	balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
+	#var balance_manager = preload("res://ui/balance_event_manager.gd").new()
+	#add_child(balance_manager)
+	#balance_manager.minigame_completed.connect(_on_balance_minigame_completed)
 	
 	# 🔊 Aplicar configuración de audio guardada
 	Settings.load_settings()
-	var music_player = get_node_or_null("MusicPlayer")
-	var sfx_player = get_node_or_null("AudioStreamPlayer")
-
-	if music_player:
-		music_player.volume_db = linear_to_db(Settings.music_volume)
-	if sfx_player:
-		sfx_player.volume_db = linear_to_db(Settings.sfx_volume)
+	Settings.apply_volumes()
 
 
 func _input(event):
@@ -46,5 +42,18 @@ func _on_balance_minigame_completed(success: bool):
 
 
 func _on_player_player_touched_obstacle() -> void:
+	gameover_ui.show()
+	get_tree().paused = true
+
+
+func _on_player_started_sliding() -> void:
+	ScoreManager.score_multiplier = 10
+
+
+func _on_player_stopped_sliding() -> void:
+	ScoreManager.score_multiplier = 1
+
+
+func _on_player_player_died() -> void:
 	gameover_ui.show()
 	get_tree().paused = true

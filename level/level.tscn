@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b02ld6vivyc5w"]
+[gd_scene load_steps=42 format=3 uid="uid://b02ld6vivyc5w"]
 
 [ext_resource type="PackedScene" uid="uid://5ylubghgfke4" path="res://entities/player.tscn" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cpkv3l4p88mu7" path="res://level/module_handler.gd" id="2_5gx2l"]
@@ -25,6 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://c5m0luwwp8t5s" path="res://level/module_16.tscn" id="19_1vdk1"]
 [ext_resource type="PackedScene" uid="uid://ci1erp0qn0g44" path="res://level/module_17.tscn" id="20_3dv6e"]
 [ext_resource type="AudioStream" uid="uid://buv6k2c7a4rb0" path="res://sound/BEAT ACEQUIA 20db ACT..mp3" id="24_kdsbj"]
+[ext_resource type="PackedScene" uid="uid://chg3wqd24b0eh" path="res://ui/balance_minigame.tscn" id="24_ml0fe"]
+[ext_resource type="Texture2D" uid="uid://b03xcb6lyrpvx" path="res://art/ui/tile_0166-wexport.png" id="26_kdj2k"]
+[ext_resource type="Texture2D" uid="uid://o6shbcdeyf0c" path="res://art/ui/tile_0167-wexport.png" id="26_u5n7q"]
+[ext_resource type="Texture2D" uid="uid://bgpeir0y7amhu" path="res://art/ui/tile_0169-wexport.png" id="27_qslh7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5gx2l"]
 sky_top_color = Color(0.84, 0.46186, 0.2268, 1)
@@ -38,6 +42,44 @@ sky_material = SubResource("ProceduralSkyMaterial_5gx2l")
 background_mode = 2
 sky = SubResource("Sky_qohg2")
 tonemap_mode = 2
+
+[sub_resource type="Animation" id="Animation_lsj08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7cdnq"]
+resource_name = "blink"
+length = 9.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.997643, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5n7q"]
+_data = {
+&"RESET": SubResource("Animation_lsj08"),
+&"blink": SubResource("Animation_7cdnq")
+}
 
 [sub_resource type="BoxMesh" id="BoxMesh_5gx2l"]
 size = Vector3(1000, 0.01, 1000)
@@ -167,7 +209,7 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_qohg2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qohg2"]
-render_priority = 0
+render_priority = -1
 shader = SubResource("Shader_5gx2l")
 shader_parameter/albedo = Color(0.0470588, 0.317647, 0.545098, 0.584314)
 shader_parameter/albedo_texture_size = Vector2i(0, 0)
@@ -211,11 +253,75 @@ autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="BalanceMinigame" parent="UI" instance=ExtResource("24_ml0fe")]
+visible = false
+
+[node name="Tutorial" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpArrow" type="TextureRect" parent="UI/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -281.0
+offset_right = 80.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_kdj2k")
+
+[node name="RightArrow" type="TextureRect" parent="UI/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = -80.0
+offset_right = 380.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_u5n7q")
+
+[node name="LeftArrow" type="TextureRect" parent="UI/Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -80.0
+offset_right = -220.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_qslh7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Tutorial"]
+libraries = {
+&"": SubResource("AnimationLibrary_u5n7q")
+}
+autoplay = "blink"
+
 [node name="ScoreUI" parent="UI" instance=ExtResource("3_0x9y8")]
 
 [node name="Control" parent="UI" instance=ExtResource("5_ivpvi")]
+visible = false
 
 [node name="GameoverUI" parent="UI" instance=ExtResource("6_0v1st")]
+visible = false
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -228,13 +334,22 @@ surface_material_override/0 = SubResource("ShaderMaterial_qohg2")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_kdsbj")
-volume_db = -12.0
-autoplay = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_44x8d")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 
-[connection signal="player_touched_obstacle" from="Player" to="." method="_on_player_player_touched_obstacle"]
+[node name="BGAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_44x8d")
+volume_db = -5.0
+bus = &"SFX"
+
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
+[connection signal="player_died" from="Player" to="UI/BalanceMinigame" method="_on_player_player_died"]
+[connection signal="started_sliding" from="Player" to="." method="_on_player_started_sliding"]
+[connection signal="started_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_started_sliding"]
+[connection signal="started_sliding" from="Player" to="UI/ScoreUI" method="_on_player_started_sliding"]
+[connection signal="stopped_sliding" from="Player" to="." method="_on_player_stopped_sliding"]
+[connection signal="stopped_sliding" from="Player" to="UI/BalanceMinigame" method="_on_player_stopped_sliding"]
+[connection signal="stopped_sliding" from="Player" to="UI/ScoreUI" method="_on_player_stopped_sliding"]
 [connection signal="timeout" from="Timer" to="ModuleHandler" method="_on_timer_timeout"]
+[connection signal="random_zone_out" from="UI/BalanceMinigame" to="Player" method="_on_balance_minigame_random_zone_out"]

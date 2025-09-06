@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbnwttvf3aoxu" path="res://art/object3D/deco/Arbol.003.glb" id="4_s7qni"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw8sk"]
-size = Vector3(2.5042, 7.88, 31.986)
+size = Vector3(2.5042, 7.88, 31.3527)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gex0"]
 size = Vector3(13, 2, 2)
@@ -19,7 +19,7 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderArea3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -13.358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89644, 0, -13.0414)
 shape = SubResource("BoxShape3D_fw8sk")
 debug_color = Color(0.996594, 0, 0.183643, 0.42)
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ib6j20n6jjl" path="res://art/object3D/ProppsColicion/Pipeline.002.glb" id="3_26e5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynywu"]
-size = Vector3(1, 1, 15)
+size = Vector3(1, 1, 11.9327)
 
 [node name="Module2" instance=ExtResource("1_bx0xy")]
 
@@ -15,7 +15,9 @@ size = Vector3(1, 1, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.503)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.188873)
 shape = SubResource("BoxShape3D_ynywu")
+debug_color = Color(0.985958, 0, 0.328525, 0.42)
 
 [node name="Pipeline_002" parent="Area3D" index="1" instance=ExtResource("3_26e5n")]
 transform = Transform3D(0.529656, -0.538042, 0, 0.538042, 0.529656, 0, 0, 0, 0.755, 0, 0, 0)

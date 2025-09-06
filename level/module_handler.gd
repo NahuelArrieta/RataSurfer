@@ -8,17 +8,21 @@ var marker : Marker3D
 
 
 func _ready() -> void:
-	_spawn_modules(15)
+	_spawn_modules(5, true) # This is done so that you don't die instantly
+	_spawn_modules(10)
 
-func _spawn_modules(n):
+func _spawn_modules(n, spawn_first_module := false):
 	var z_position
 	if marker:
 		z_position = marker.global_position.z
 	else:
 		z_position = 0
-	
 	for i in range(n): # cambia 10 por la cantidad que quieras de inicio
-		var module_instance = modules.pick_random().instantiate()
+		var module_instance
+		if spawn_first_module:
+			module_instance = modules[0].instantiate()
+		else:
+			module_instance = modules.pick_random().instantiate()
 		add_child(module_instance)
 		module_instance.global_position.z = z_position
 		
@@ -28,7 +32,6 @@ func _spawn_modules(n):
 			marker = Marker3D.new()
 			module_instance.add_child(marker)
 			marker.position.z -= MODULE_DEPTH 
-
 
 func _on_timer_timeout() -> void:
 	var removed: int = 0

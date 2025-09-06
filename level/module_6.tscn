@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnk7x4c43c2l7"]
+[gd_scene load_steps=5 format=3 uid="uid://dnk7x4c43c2l7"]
 
 [ext_resource type="PackedScene" uid="uid://f0pg6ag1yxi4" path="res://level/environment_module.tscn" id="1_aj218"]
 [ext_resource type="PackedScene" uid="uid://bl20f6jl4oifu" path="res://art/object3D/ModuloRejas.002.glb" id="2_jra2i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aj218"]
-size = Vector3(26.4911, 1, 15.8361)
+size = Vector3(26.4911, 1, 11.1348)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jra2i"]
+size = Vector3(3.09558, 1, 11.2471)
 
 [node name="Module6" instance=ExtResource("1_aj218")]
 
@@ -14,5 +17,11 @@ size = Vector3(26.4911, 1, 15.8361)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39931, -30.8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04938, 0, 7.41803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04938, 0, 8.03617)
 shape = SubResource("BoxShape3D_aj218")
+
+[node name="Area3D2" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8.04049)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
+shape = SubResource("BoxShape3D_jra2i")

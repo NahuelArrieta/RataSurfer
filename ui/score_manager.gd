@@ -1,12 +1,13 @@
 extends Node
 
-signal score_updated(new_score: int)
-signal high_score_updated(new_high_score: int)
+signal score_updated(new_score: float)
+signal high_score_updated(new_high_score: float)
 
-var current_score: int = 0
-var high_score: int = 0
+var current_score: float = 0
+var high_score: float = 0
+var new_score := 0.0
 var score_per_second: int = 10  # Puntos por segundo de supervivencia
-var time_elapsed: float = 0.0
+var score_multiplier := 1
 
 const SAVE_FILE = "user://high_score.save"
 
@@ -14,11 +15,9 @@ func _ready():
 	load_high_score()
 
 func _process(delta: float) -> void:
-	# Sumar tiempo transcurrido
-	time_elapsed += delta
 	
 	# Calcular score basado en tiempo (puntos por segundo)
-	var new_score = int(time_elapsed * score_per_second)
+	new_score += delta * score_per_second * score_multiplier
 	
 	# Solo actualizar si el score cambió
 	if new_score != current_score:
@@ -32,14 +31,15 @@ func _process(delta: float) -> void:
 			high_score_updated.emit(high_score)
 
 func reset_score() -> void:
-	time_elapsed = 0.0
 	current_score = 0
+	new_score = 0
+	score_multiplier = 1
 	score_updated.emit(current_score)
 
-func get_current_score() -> int:
+func get_current_score() -> float:
 	return current_score
 
-func get_high_score() -> int:
+func get_high_score() -> float:
 	return high_score
 
 func save_high_score() -> void:

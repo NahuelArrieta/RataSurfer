@@ -12,22 +12,20 @@ const EXIT_SCALE_TIME := 0.45
 const EXIT_FADE_TIME := 0.30
 
 # ------------------ NODOS ------------------
-@onready var title_label: Label = $"HBoxContainer/MarginContainer/VBoxContainer/Label"
-@onready var start_button: Button = $"HBoxContainer/MarginContainer/VBoxContainer/Button"
-@onready var options_button: Button = $"HBoxContainer/MarginContainer/VBoxContainer/Button2"
+@onready var title_label: TextureRect = $VBoxContainer/Label
+@onready var start_button: TextureButton = $VBoxContainer/Button
+@onready var options_button: TextureButton = $VBoxContainer/Button2
 @onready var menu_player: AudioStreamPlayer = $"MenuPlayer"
-@onready var vbox: VBoxContainer = $"HBoxContainer/MarginContainer/VBoxContainer"
-@onready var margin: MarginContainer = $"HBoxContainer/MarginContainer"
+@onready var vbox: VBoxContainer = $VBoxContainer
+#@onready var margin: MarginContainer = $"HBoxContainer/MarginContainer"
 
 func _ready() -> void:
 	# 🔊 Cargar y aplicar settings
 	Settings.load_settings()
-	if menu_player:
-		menu_player.volume_db = linear_to_db(Settings.menu_volume)
-		print("🎶 MenuPlayer volumen aplicado:", menu_player.volume_db)
+	Settings.apply_volumes()
 
 	# Ajustar margen superior para bajar el bloque (título + botones)
-	margin.add_theme_constant_override("margin_top", 220) # 🔽 bajá este valor para más espacio
+	#margin.add_theme_constant_override("margin_top", 220) # 🔽 bajá este valor para más espacio
 
 	# Esperamos un frame para asegurar tamaños
 	await get_tree().process_frame
@@ -57,12 +55,12 @@ func _play_entry_animation() -> void:
 	t.tween_property(vbox, "scale", NORMAL_SCALE, 0.08)
 
 # ------------------ EFECTO DE HOVER ------------------
-func _on_button_hover(btn: Button) -> void:
+func _on_button_hover(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", HOVER_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-func _on_button_exit(btn: Button) -> void:
+func _on_button_exit(btn: TextureButton) -> void:
 	var t := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).bind_node(btn)
 	t.tween_property(btn, "scale", NORMAL_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl2fkoffxy0co" path="res://art/object3D/ProppsColicion/Piedra.001.glb" id="3_ruso7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynywu"]
-size = Vector3(1, 5, 15)
+size = Vector3(1, 5, 7.49554)
 
 [node name="Module2" instance=ExtResource("1_06nt4")]
 
@@ -15,10 +15,11 @@ size = Vector3(1, 5, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.503)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.665192)
 shape = SubResource("BoxShape3D_ynywu")
 
 [node name="Piedra_001" parent="Area3D" index="1" instance=ExtResource("3_ruso7")]
-transform = Transform3D(0.00798986, 0, 0.599947, 0, 0.6, 0, -0.599947, 0, 0.00798986, 0, 0, 3.27221)
+transform = Transform3D(0.00665822, 0, 0.499956, 0, 0.5, 0, -0.499956, 0, 0.00665822, 0, 0, 3.27221)
 
 [node name="Piedra_002" parent="Area3D" index="2" instance=ExtResource("3_ruso7")]
-transform = Transform3D(0.263079, 0, 0.539249, 0, 0.6, 0, -0.539249, 0, 0.263079, 0, 0, -1.56911)
+transform = Transform3D(0.219232, 0, 0.449374, 0, 0.5, 0, -0.449374, 0, 0.219232, 0, 0, -1.56911)

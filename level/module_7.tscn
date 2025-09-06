@@ -29,12 +29,13 @@ mesh = SubResource("BoxMesh_0js0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="1"]
 shape = SubResource("BoxShape3D_awed4")
+debug_color = Color(0.969588, 0, 0.460363, 0.42)
 
 [node name="BotellaLeche1" parent="Area3D" index="2" instance=ExtResource("3_xblk7")]
-transform = Transform3D(0.619294, -0.718806, 0.3159, 0.640313, 0.695211, 0.326622, -0.454395, 0, 0.8908, 0, 0, 0)
+transform = Transform3D(1.23859, -1.43761, 0.6318, 1.28063, 1.39042, 0.653243, -0.90879, 4.17233e-07, 1.7816, 0, 0, 0)
 
 [node name="BotellaLeche2" parent="Area3D" index="3" instance=ExtResource("4_vwpwi")]
-transform = Transform3D(0.942752, 0.333494, 0, -0.333494, 0.942752, 0, 0, 0, 1, 0, 0, 0.653839)
+transform = Transform3D(1.8855, 0.666988, 0, -0.666988, 1.8855, 0, 0, 0, 2, 0, 0, 0.653839)
 
 [node name="Bush_0022" parent="." index="3" instance=ExtResource("3_ivcxa")]
 transform = Transform3D(0.0153234, 0, -0.999883, 0, 1, 0, 0.999883, 0, 0.0153234, 18.3307, 4.16548, -25.5623)

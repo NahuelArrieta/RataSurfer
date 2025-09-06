@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y0l4pelof5w6" path="res://art/object3D/ProppsColicion/Ramas.001.glb" id="4_re8de"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ynywu"]
-size = Vector3(1, 1, 15)
+size = Vector3(1, 1, 11.8145)
 
 [node name="Module2" instance=ExtResource("1_8ackf")]
 
@@ -16,7 +16,9 @@ size = Vector3(1, 1, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -22.503)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.291107)
 shape = SubResource("BoxShape3D_ynywu")
+debug_color = Color(0.985147, 0, 0.336649, 0.42)
 
 [node name="Pipeline_002" parent="Area3D" index="1" instance=ExtResource("3_ee601")]
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0, 0, 0)
@@ -26,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -22.503)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
 shape = SubResource("BoxShape3D_ynywu")
+debug_color = Color(0.985147, 0, 0.336649, 0.42)
 
 [node name="Ramas_001" parent="Area3D2" index="1" instance=ExtResource("4_re8de")]
 transform = Transform3D(-0.999976, 0.00686601, -0.000380864, 0, 0.0553858, 0.998465, 0.00687657, 0.998441, -0.0553845, 0, 0, -7.14792)

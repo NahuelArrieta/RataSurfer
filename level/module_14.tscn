@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c53y8uwahfqk6" path="res://art/object3D/deco/Arbol.001(1).glb" id="3_sl4td"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6sgr"]
-size = Vector3(1, 5, 15)
+size = Vector3(1, 5, 6.99377)
 
 [node name="Module2" instance=ExtResource("1_bc0jy")]
 
@@ -16,13 +16,14 @@ size = Vector3(1, 5, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.922)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47443)
 shape = SubResource("BoxShape3D_u6sgr")
 
 [node name="Piedra_001" parent="Area3D" index="1" instance=ExtResource("3_ao3a1")]
-transform = Transform3D(0.145021, 0, -0.58221, 0, 0.6, 0, 0.58221, 0, 0.145021, 0, 0, 3.74406)
+transform = Transform3D(0.120851, 0, -0.485175, 0, 0.5, 0, 0.485175, 0, 0.120851, 0, 0, 3.74406)
 
 [node name="Piedra_002" parent="Area3D" index="2" instance=ExtResource("3_ao3a1")]
-transform = Transform3D(0.320346, 0, 0.507325, 0, 0.6, 0, -0.507325, 0, 0.320346, 0, 0, -0.406759)
+transform = Transform3D(0.266955, 0, 0.422771, 0, 0.5, 0, -0.422771, 0, 0.266955, 0, 0, -0.406759)
 
 [node name="Arbol_001(1)" parent="." index="3" instance=ExtResource("3_sl4td")]
 transform = Transform3D(0.455483, 0, 0.890245, 0, 1, 0, -0.890245, 0, 0.455483, -19.0618, 1.90735e-06, -14.5558)

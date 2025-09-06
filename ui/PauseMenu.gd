@@ -13,9 +13,9 @@ const EXIT_SCALE_TIME := 0.45
 const EXIT_FADE_TIME := 0.30
 
 # ------------------ NODOS ------------------
-@onready var center_container: Control = $CenterContainer
-@onready var resume_button: Button = $CenterContainer/VBoxContainer/Button
-@onready var main_menu_button: Button = $CenterContainer/VBoxContainer/Button2
+@onready var center_container: Control = $VBoxContainer
+@onready var resume_button: TextureButton = $VBoxContainer/PlayButton
+@onready var main_menu_button: TextureButton = $VBoxContainer/ExitButton
 
 
 # ------------------ READY ------------------
@@ -81,12 +81,12 @@ func _play_exit_animation() -> Signal:
 
 
 # ------------------ EFECTO BOTONES ------------------
-func _on_button_hover(btn: Button) -> void:
+func _on_button_hover(btn: TextureButton) -> void:
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_HOVER_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color(1.1, 1.1, 1.1), BTN_ANIM_TIME)
 
-func _on_button_exit(btn: Button) -> void:
+func _on_button_exit(btn: TextureButton) -> void:
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).bind_node(btn)
 	t.tween_property(btn, "scale", BTN_NORMAL_SCALE, BTN_ANIM_TIME)
 	t.parallel().tween_property(btn, "modulate", Color.WHITE, BTN_ANIM_TIME)
