@@ -4,6 +4,7 @@ extends Node
 @onready var left_mvm_audio_player: AudioStreamPlayer3D = $LeftMvmAudioPlayer
 @onready var right_mvm_audio_player: AudioStreamPlayer3D = $RightMvmAudioPlayer
 @onready var failed_balance_audio_player: AudioStreamPlayer3D = $FailedBalanceAudioPlayer
+@onready var sliding_audio_player: AudioStreamPlayer3D = $SlidingAudioPlayer
 
 func _on_movement_handler_player_jumped() -> void:
 	salto_audio_player.play()
@@ -19,3 +20,7 @@ func _on_movement_handler_moved_right() -> void:
 
 func _on_movement_handler_lost_minigame_and_is_sliding() -> void:
 	failed_balance_audio_player.play()
+
+
+func _on_movement_handler_started_sliding() -> void:
+	sliding_audio_player.play()
